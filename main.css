@@ -18,29 +18,66 @@ body {
 }
 
 #header-information {
+    background-color: #1450af;
+}
+
+#inner-header-container {
     position: relative;
     padding: 1rem 2rem;
-    background-color: #1450af;
+    z-index: 99; 
+    background-color: #1450af; 
     color: #fafafa;
+    width: 100%;
+}
+
+#ad {
+    position: absolute;
+    top: 2rem;
+    z-index: 99;
+    transform: translateX(50%);
+}
+
+#ad-title {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #1450af;
+}
+
+
+#ad-desc {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    color: #6f7780;
+}
+
+
+#profile-container {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+    z-index: 10;
+    overflow-y: auto;
 }
 
 #profile {
-    display: none;
-    position: fixed;
-    left: 0;
     width: 75%;
-    background-color: green;
-    z-index: 99;
-    height: 100vh;
+    height: 100%;
+    position: relative;
     background-color: #fafafa;
-    top: 5.6rem;;
+    overflow-y: auto;
 }
 
-#profile-header {
-    padding: 3rem 1rem;
+#profile-header {   
+    position: static;
     display: flex;
     align-items: end;
     gap: 2rem;
+    padding: 10rem 1rem 3rem 1rem;
 }
 
 #name-and-sign-out {
@@ -110,8 +147,14 @@ body {
     display: block;
 }
 
+#hamburger {
+    display: block;
+    position: relative;
+}
+
 #hamburger::after {
     position: absolute;
+    display: block;
     content: "menu";
     font-family: "Material Icons";
     font-size: 3rem;
@@ -119,6 +162,8 @@ body {
     right: 2rem;
     color: #87a4d3;
     display: block;
+    top: -8rem;
+    z-index: 99;
 }
 
 #address-book-container {
@@ -137,6 +182,8 @@ body {
     background-color: #0a41a5;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 99;
 }
 
 #input-container {
