@@ -134,20 +134,12 @@
                     <button class="search-button">SEARCH</button>
                 </form>
             </div>
-            <div id="filter-part">
-                <div id="amount-and-filter">
-                    <p id="employees-amount-large">9 employees displayed</p>
-                    <div id="filter-ways">
-                        <div>
-                            <img src="./images/grid-view.png" alt="Gird view" width="24px" height="24px" />
-                        </div>
-                        <div>
-                            <img src="./images/list-view.png" alt="List view" width="24px" height="24px" />
-                        </div>
-                    </div>
-                </div>
-
+                <input type="radio" name="view" id="grid-view-input" checked="checked" />
+                <label for="grid-view-input" class="view-label grid-label">
+                    <img src="./images/grid-view.png" alt="Gird view" width="24px" height="24px" class="grid-view-img"/>
+                </label>
                 <ul id="employees-list-grid-view">
+                     <p class="employees-amount-large">9 employees displayed</p>
 
                         <li class="employee large-emp">
                             <div class="employee-picture-and-name">
@@ -275,8 +267,139 @@
                                 <span>LPT1403</span>
                             </div>
                         </li>
+                </ul>
+            <input type="radio" name="view" id="list-view-input" />
+            <label for="list-view-input" class="view-label list-label">
+                
+                <img src="./images/list-view.png" alt="List view" width="24px" height="24px" />
+            </label>
+            <div id="listing-view-container">
+                 <p class="employees-amount-large">9 employees displayed</p>
+                    <div id="listing-view-banner">
+                        <div class="banner-part first-part">
+                            <div>
+                                <img src="./images/employee.png" alt="Photo" width="10px" height="10px" />
+                                <span>Photo</span>
+                            </div>
+                            <div>
+                                <img src="./images/user.png" alt="Name" width="10px" height="10px" />
+                                <span>Name</span>
+                            </div>
+                        </div>
+                        <div class="banner-part second-part">
+                            <div style="display: flex; align-items: center;">
+                                <span class="material-symbols-outlined" style="font-size: 1.8rem;">
+                                    business_center
+                                </span>
+                                <span>Department</span>
+                            </div>
+                            <div>
+                                <img src="./images/mobile-phone.png" alt="Room" width="10px" height="10px" />
+                                <span>Room</span>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <ul id="employees-list-listing-view">
+
+                        <li class="employee large-emp-listing banner-part">
+                            <div class="employee-picture-and-name-listing first-part">
+                                <img src="./images/user.png" class="employee-picture-listing" alt="user" width="50px" height="50px"/>
+                                <span class="name">Brendar Krueger</span>
+                            </div>
+                            <div class="job second-part">
+                                <span>Web & Mobile</span>
+                                <span>LPT1403</span>
+                            </div>
+                        </li>
+                        <li class="employee large-emp-listing banner-part">
+                            <div class="employee-picture-and-name-listing first-part">
+                                <img src="./images/user.png" class="employee-picture-listing" alt="user" width="50px" height="50px"/>
+                                <span class="name">Brendar Krueger</span>
+                            </div>
+                            <div class="job second-part">
+                                <span>Web & Mobile</span>
+                                <span>LPT1403</span>
+                            </div>
+                        </li>
+                        <li class="employee large-emp-listing banner-part">
+                            <div class="employee-picture-and-name-listing first-part">
+                                <img src="./images/user.png" class="employee-picture-listing" alt="user" width="50px" height="50px"/>
+                                <span class="name">Brendar Krueger</span>
+                            </div>
+                            <div class="job second-part">
+                                <span>Web & Mobile</span>
+                                <span>LPT1403</span>
+                            </div>
+                        </li>
+                        <li class="employee large-emp-listing banner-part">
+                            <div class="employee-picture-and-name-listing first-part">
+                                <img src="./images/user.png" class="employee-picture-listing" alt="user" width="50px" height="50px"/>
+                                <span class="name">Brendar Krueger</span>
+                            </div>
+                            <div class="job second-part">
+                                <span>Web & Mobile</span>
+                                <span>LPT1403</span>
+                            </div>
+                        </li>
+                        <li class="employee large-emp-listing banner-part">
+                            <div class="employee-picture-and-name-listing first-part">
+                                <img src="./images/user.png" class="employee-picture-listing" alt="user" width="50px" height="50px"/>
+                                <span class="name">Brendar Krueger</span>
+                            </div>
+                            <div class="job second-part">
+                                <span>Web & Mobile</span>
+                                <span>LPT1403</span>
+                            </div>
+                        </li>
+                        <li class="employee large-emp-listing banner-part">
+                            <div class="employee-picture-and-name-listing first-part">
+                                <img src="./images/user.png" class="employee-picture-listing" alt="user" width="50px" height="50px"/>
+                                <span class="name">Brendar Krueger</span>
+                            </div>
+                            <div class="job second-part">
+                                <span>Web & Mobile</span>
+                                <span>LPT1403</span>
+                            </div>
+                        </li>
+                        <li class="employee large-emp-listing banner-part">
+                            <div class="employee-picture-and-name-listing first-part">
+                                <img src="./images/user.png" class="employee-picture-listing" alt="user" width="50px" height="50px"/>
+                                <span class="name">Brendar Krueger</span>
+                            </div>
+                            <div class="job second-part">
+                                <span>Web & Mobile</span>
+                                <span>LPT1403</span>
+                            </div>
+                        </li>
+                        <li class="employee large-emp-listing banner-part">
+                            <div class="employee-picture-and-name-listing first-part">
+                                <img src="./images/user.png" class="employee-picture-listing" alt="user" width="50px" height="50px"/>
+                                <span class="name">Brendar Krueger</span>
+                            </div>
+                            <div class="job second-part">
+                                <span>Web & Mobile</span>
+                                <span>LPT1403</span>
+                            </div>
+                        </li>
+                        <li class="employee large-emp-listing banner-part">
+                            <div class="employee-picture-and-name-listing first-part">
+                                <img src="./images/user.png" class="employee-picture-listing" alt="user" width="50px" height="50px"/>
+                                <span class="name">Brendar Krueger</span>
+                            </div>
+                            <div class="job second-part">
+                                <span>Web & Mobile</span>
+                                <span>LPT1403</span>
+                            </div>
+                        </li>
+
+
                     </ul>
-        </div>
+                </div>   
+
+            </div>
+
+                        
 
         <ul id="employees-list">
             <li class="employee">

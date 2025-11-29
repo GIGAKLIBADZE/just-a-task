@@ -363,10 +363,14 @@ li::after {
         padding-inline: 5rem;
     }
 
-    #employees-amount-large {
+    .employees-amount-large {
         font-size: 1.6rem;
         font-weight: 700;
         color: #6f7780;
+        position: absolute;
+        top: -4rem;
+        left: 0;
+        z-index: 2;
     }
 
     #filter-ways {
@@ -382,6 +386,7 @@ li::after {
         display: grid;
         grid-template-columns: repeat(3, 30rem);
         gap: 2rem;
+        position: relative;
     }
 
     .employee-picture-and-name {
@@ -563,5 +568,92 @@ li::after {
         height: 0.2rem;
         background-color: #0a41a5;
     }
+
+    #listing-view-banner {
+        width: 100%;
+        background-color: #fafafa;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 4rem 2rem 2rem;
+    }
+
+    .banner-part {
+        display: flex;
+        align-items: center
+    }
+
+    .first-part {
+        gap: 3rem;
+    }
+
+    .second-part {
+        gap: 5rem;
+        margin-top: 0;
+        color: rgb(60, 58, 58);
+    }
+
+    .large-emp-listing {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 4rem 2rem 2rem;
+    }
+
+    #listing-view-container {
+        width: 100%;
+    }
+
+    .employee-picture-and-name-listing {
+        display: flex;
+        align-items: center;
+    }
+
+    #filter-part-and-llisting-container {
+        width: 125%;
+        margin-top: 4rem;
+    }
+
+    .view-label {
+        position: absolute;
+        top: 13rem;
+    }
+
+    .grid-label {
+        right: 10rem
+    }
+
+    .list-label {
+        right: 7rem;
+    }
+
+    #list-view-input, #grid-view-input {
+        display: none;
+    }
+
+    #listing-view-container, #employees-list-grid-view {
+        display: none;
+    }
+
+    #grid-view-input:checked + label + ul {
+        display: grid; 
+        margin-top: 4rem;
+    }
+    
+    #list-view-input:checked + label + div {
+        display: block; 
+        margin-top: 4rem;
+    }
+
+    .grid-view-img {
+        position: absolute;
+        z-index: 2;
+        right: 1rem;
+    }
+
+    #listing-view-container {
+        position: relative;
+    }
+
 }
 
