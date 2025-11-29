@@ -78,15 +78,62 @@
         <div id="search-and-filter">
             <div id="search-part">
                 <div id="search-ways">
-                    <p>BASIC SEARCH</p>
-                    <p>ADVANCED SEARCH</p>
+                    <label for="search-version-basic" id="search-version-label-basic">BASIC SEARCH</label>
+                    <label for="search-version" id="search-version-label">ADVANCED SEARCH</label>
                 </div>
+                <input type="checkbox" id="search-version"/>
                 <div id="employee-search-container">
                     <div id="employee-search-input-container">
                         <input id="employee-search-input" placeholder="John Smith"/>
                     </div>
-                    <button id="search-button">SEARCH</button>
+                    <button class="search-button">SEARCH</button>
                 </div>
+                
+                <form id="search-form">
+                    <div class="field-label">
+                        <label class="search-label" for="name">Name</label>
+                        <input type="text" placeholder="John Smith" name="name" id="name" class="search-field"/>
+                    </div>
+                    <div class="field-label">
+                        <label class="search-label" for="email">Email</label>
+                        <input type="email" placeholder="johnsmith@leverx.comc" name="email" id="email" class="search-field"/>
+                    </div>
+                    <div class="phone-telegram">
+                        <div class="field-label">
+                            <label class="search-label" for="phone">Phone</label>
+                            <input type="text" placeholder="Phone Number" name="phone" id="phone" class="search-field"/>
+                        </div>
+                        <div class="field-label">
+                            <label class="search-label" for="telegram">Telegram</label>
+                            <input type="text" placeholder="TelegramId" name="telegram" id="telegram" class="search-field"/>
+                        </div>
+                    </div>
+                    <div class="field-label building-room">
+                        <div class="field-label">
+                            <label class="search-label" for="building">Building</label>
+                            <select id="building" name="building" class="search-field">
+                                <option selected>Any</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                        <div class="field-label">
+                            <label class="search-label" for="room">Room</label>
+                            <input type="number" placeholder="301.1" name="room" id="room" class="search-field"/>
+                        </div>
+                    </div>
+                    <div class="field-label">
+                        <label class="search-label" for="department">Department</label>
+                        <select id="department" name="department" class="search-field">
+                            <option selected>Any</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <button class="search-button">SEARCH</button>
+                </form>
             </div>
             <div id="filter-part">
                 <div id="amount-and-filter">
@@ -230,8 +277,6 @@
                             </div>
                         </li>
                     </ul>
-            </div>
-        
         </div>
 
         <ul id="employees-list">
