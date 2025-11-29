@@ -80,15 +80,17 @@
                 <input type="radio" id="search-version-basic" name="search-tabs" checked="checked"/>
                 <label for="search-version-basic" class="search-version-label basic">BASIC SEARCH</label>
                 <div id="employee-search-container">
-                    <div id="employee-search-input-container">
-                        <input id="employee-search-input" placeholder="John Smith"/>
-                    </div>
-                    <button class="search-button">SEARCH</button>
+                    <form action="empty.html" class="employee-search-container-form">
+                        <div id="employee-search-input-container">
+                            <input id="employee-search-input" placeholder="John Smith"/>
+                        </div>
+                        <button class="search-button" >SEARCH</button>
+                    </form>
                 </div>
                 
                 <input type="radio" id="search-version-advanced" name="search-tabs" />
                 <label for="search-version-advanced" class="search-version-label advanced">ADVANCED SEARCH</label>
-                <form id="search-form">
+                <form action="empty.html" id="search-form">
                     <div class="field-label">
                         <label class="search-label" for="name">Name</label>
                         <input type="text" placeholder="John Smith" name="name" id="name" class="search-field"/>
@@ -397,6 +399,12 @@
                     </ul>
                 </div>   
 
+            </div>
+
+            <div id="empty-page">
+                <img src="./images/nothing-found.png" alt="Nothing" width="300px" height="300px">
+                <h3 id="empty-result-title">Nothing Found</h3>
+                <p id="empty-result-desc">No result match you search. Consider trying different search request</p>
             </div>
 
                         

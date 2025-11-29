@@ -441,6 +441,12 @@ li::after {
         width: 100%;
     }
 
+    .employee-search-container-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
     #employee-search-input-container {
         position: relative;
     }
@@ -655,5 +661,28 @@ li::after {
         position: relative;
     }
 
+    #empty-page {
+        margin-top: 4rem;
+        padding: 4rem 10rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        color: rgb(39, 37, 37);
+        background-color: #fafafa;
+    }
+
+    #empty-result-title {
+        font-size: 4rem;
+    }
+
+    #empty-result-desc {
+        opacity: 0.5;
+        font-size: 2rem;
+    }
+
+    #empty-page {
+        width: 100%;
+    }
 }
 

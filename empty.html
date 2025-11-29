@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css" />
+    <title>Document</title>
+</head>
+<body>
+    <header id="main-header">
+        <div id="header-information">
+            <div id="inner-header-container">
+                <p id="company">LEVERX</p>
+                <h1 id="title">EMPLOYEE SERVICES</h1>
+            </div>
+            <div id="header-search">
+                <div id="input-container">
+                    <input id="search-input" placeholder="Open search panel"/>
+                </div>
+            </div>
+            <input type="checkbox" id="menu"/>
+            <label for="menu" id="hamburger"></label>
+
+            <div id="profile-container">
+                <div id="ad">
+                    <h6 id="ad-title">LeverX</h6>
+                    <p id="ad-desc">Explore some new opportunities</p>
+                </div>
+                <div id="profile">
+                    <header id="profile-header">
+                        <div>
+                            <img src="./images/user.png" alt="Your profile icon" width="50px" height="50px"/>
+                        </div>
+                        <div id="name-and-sign-out">
+                            <p id="profile-owner-name">Steve Cook</p>
+                            <a id="sign-out">Sign out</a>
+                        </div>
+                    </header>
+                    <p id="address-book">Address Book</p>
+                    <footer>
+                        <button id="support-button">
+                            <img id="support-icon" src="./images/question-mark.png" alt="Question mark" width="15px" height="15px"/>
+                            <p>SUPPORT</p>
+                        </button>
+                    </footer>
+                </div>
+            </div>
+
+            <div id="address-book-large">Address Book</div>
+
+            <div id="support-profile-turn-on-off-container">
+                <div id="support-and-profile-container">
+                    <button id="support-button-large">
+                        <img id="support-icon" src="./images/question-mark.png" alt="Question mark" width="15px" height="15px"/>
+                        <p>SUPPORT</p>
+                    </button>
+                    <div id="profile-large">
+                        <img src="./images/user.png" alt="Your profile icon" width="20px" height="20px"/>
+                        <span>STEVE COOK</span>
+                    </div>
+                </div>
+                <div id="switch-on-off-container">
+                    <img src="./images/turn-on-off.png" id="switch-on-off" alt="Turn on/off" width="20px" height="20px" />
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <p id="employees-amount">0 employees displayed</p>
+
+        <div id="search-and-filter">
+            <div id="search-part">
+                <input type="radio" id="search-version-basic" name="search-tabs" checked="checked"/>
+                <label for="search-version-basic" class="search-version-label basic">BASIC SEARCH</label>
+                <div id="employee-search-container">
+                    <form action="empty.html" class="employee-search-container-form">
+                        <div id="employee-search-input-container">
+                            <input id="employee-search-input" placeholder="John Smith"/>
+                        </div>
+                        <button class="search-button" >SEARCH</button>
+                    </form>
+                </div>
+                
+                <input type="radio" id="search-version-advanced" name="search-tabs" />
+                <label for="search-version-advanced" class="search-version-label advanced">ADVANCED SEARCH</label>
+                <form action="empty.html" id="search-form">
+                    <div class="field-label">
+                        <label class="search-label" for="name">Name</label>
+                        <input type="text" placeholder="John Smith" name="name" id="name" class="search-field"/>
+                    </div>
+                    <div class="field-label">
+                        <label class="search-label" for="email">Email</label>
+                        <input type="email" placeholder="johnsmith@leverx.comc" name="email" id="email" class="search-field"/>
+                    </div>
+                    <div class="phone-telegram">
+                        <div class="field-label">
+                            <label class="search-label" for="phone">Phone</label>
+                            <input type="text" placeholder="Phone Number" name="phone" id="phone" class="search-field"/>
+                        </div>
+                        <div class="field-label">
+                            <label class="search-label" for="telegram">Telegram</label>
+                            <input type="text" placeholder="TelegramId" name="telegram" id="telegram" class="search-field"/>
+                        </div>
+                    </div>
+                    <div class="field-label building-room">
+                        <div class="field-label">
+                            <label class="search-label" for="building">Building</label>
+                            <select id="building" name="building" class="search-field">
+                                <option selected>Any</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>
+                        </div>
+                        <div class="field-label">
+                            <label class="search-label" for="room">Room</label>
+                            <input type="number" placeholder="301.1" name="room" id="room" class="search-field"/>
+                        </div>
+                    </div>
+                    <div class="field-label">
+                        <label class="search-label" for="department">Department</label>
+                        <select id="department" name="department" class="search-field">
+                            <option selected>Any</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                    </div>
+                    <button class="search-button">SEARCH</button>
+                </form>
+            </div>
+                <label class="view-label grid-label">
+                    <img src="./images/grid-view.png" alt="Gird view" width="24px" height="24px" class="grid-view-img"/>
+                </label>      
+            <label class="view-label list-label">
+                <img src="./images/list-view.png" alt="List view" width="24px" height="24px" />
+            </label>
+            <div id="empty-page">
+                <img src="./images/nothing-found.png" alt="Nothing" width="300px" height="300px">
+                <h3 id="empty-result-title">Nothing Found</h3>
+                <p id="empty-result-desc">No result match you search. Consider trying different search request</p>
+            </div>   
+        </main>
+</body>
+</html>
