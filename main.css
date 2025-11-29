@@ -1,3 +1,4 @@
+/* Basic reset */
 *,
 *::before,
 *::after {
@@ -6,6 +7,8 @@
     margin: 0;
 }
 
+
+/* For rem using */
 html {
     font-size: 62.5%;
 }
@@ -143,8 +146,16 @@ body {
     display: none;
 }
 
-#menu:checked ~ div {
+#menu:checked + label + div {
     display: block;
+}
+
+#menu:checked ~ label::after {
+    content: "cancel"; 
+}
+
+#address-book-large, #support-profile-turn-on-off-container{
+    display: none;
 }
 
 #hamburger {
@@ -277,6 +288,7 @@ li::after {
     height: 5rem;
 }
 
+/* Desktop views */
 @media (min-width: 1440px) {
     #hamburger, #menu, #profile-container, #header-search, #employees-amount, #employees-list {
         display: none;

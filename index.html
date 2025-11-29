@@ -13,6 +13,7 @@
 </head>
 <body>
 
+    <!-- Header -->
     <header id="main-header">
         <div id="header-information">
             <div id="inner-header-container">
@@ -72,10 +73,13 @@
         </div>
     </header>
 
+    <!-- Main Content -->
     <main>
         <p id="employees-amount">9 employees displayed</p>
 
         <div id="search-and-filter">
+
+            <!-- Basic and advanced search methods -->
             <div id="search-part">
                 <input type="radio" id="search-version-basic" name="search-tabs" checked="checked"/>
                 <label for="search-version-basic" class="search-version-label basic">BASIC SEARCH</label>
@@ -140,6 +144,8 @@
                 <label for="grid-view-input" class="view-label grid-label">
                     <img src="./images/grid-view.png" alt="Gird view" width="24px" height="24px" class="grid-view-img"/>
                 </label>
+
+                <!-- Grid view of employees for large screens -->
                 <ul id="employees-list-grid-view">
                      <p class="employees-amount-large">9 employees displayed</p>
 
@@ -275,6 +281,8 @@
                 
                 <img src="./images/list-view.png" alt="List view" width="24px" height="24px" />
             </label>
+
+            <!-- List view of employees -->
             <div id="listing-view-container">
                  <p class="employees-amount-large">9 employees displayed</p>
                     <div id="listing-view-banner">
@@ -401,14 +409,7 @@
 
             </div>
 
-            <div id="empty-page">
-                <img src="./images/nothing-found.png" alt="Nothing" width="300px" height="300px">
-                <h3 id="empty-result-title">Nothing Found</h3>
-                <p id="empty-result-desc">No result match you search. Consider trying different search request</p>
-            </div>
-
-                        
-
+        <!-- List view for mobile/tablet screens -->
         <ul id="employees-list">
             <li class="employee">
                 <div class="employee-picture-and-name">
