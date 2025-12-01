@@ -1,6 +1,12 @@
-const employeesGridViewList = document.getElementById('employees-list-grid-view');
+const employeesGridViewList = document.querySelector('.employees-list-grid-view');
 const employeesListingViewList = document.getElementById('employees-list-listing-view');
 const employeesList = document.getElementById('employees-list');
+
+const viewSwitcher = [...document.querySelectorAll('.icon-switcher-container')];
+const content = [
+    document.querySelector('.employees-list-grid-view'),
+    document.querySelector('.listing-view-container')
+]
 
 const loadEmployees = () => {
     fetch('employees.json')
@@ -59,3 +65,18 @@ const loadEmployees = () => {
 window.addEventListener('DOMContentLoaded', () => {
     loadEmployees()
 })
+
+viewSwitcher.forEach((vs) => vs.addEventListener('click', handleContentChange));
+
+let index = 0
+function handleContentChange(event) {
+    if (viewSwitcher.indexOf(event.currentTarget) === index) return;
+
+    const currentEl = event.currentTarget;
+
+    content[index].classList.remove('active-content');
+
+    index = viewSwitcher.indexOf(currentEl);
+
+    content[index].classList.add('active-content');
+}

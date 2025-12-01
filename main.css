@@ -7,7 +7,6 @@
     margin: 0;
 }
 
-
 /* For rem using */
 html {
     font-size: 62.5%;
@@ -232,6 +231,10 @@ main {
     margin-left: 2rem;
 }
 
+#employees-list-container {
+    display: none;
+}
+
 #employees-list {
     display: grid;
     gap: 0.5rem;
@@ -281,6 +284,7 @@ li::after {
 
 #search-and-filter {
     display: none;
+    gap: 4rem;
 }
 
 .employee-picture {
@@ -290,7 +294,7 @@ li::after {
 
 /* Desktop views */
 @media (min-width: 1440px) {
-    #hamburger, #menu, #profile-container, #header-search, #employees-amount, #employees-list {
+    #hamburger, #menu, #profile-container, #header-search, #employees-amount, #employees-list-container, #employees-list {
         display: none;
     }
 
@@ -380,9 +384,7 @@ li::after {
         font-weight: 700;
         color: #6f7780;
         position: absolute;
-        top: -4rem;
         left: 0;
-        z-index: 2;
     }
 
     #filter-ways {
@@ -394,11 +396,12 @@ li::after {
         filter: invert(1)
     }
 
-    #employees-list-grid-view {
-        display: grid;
+    .employees-list-grid-view {
+        display: none;
         grid-template-columns: repeat(3, 30rem);
         gap: 2rem;
         position: relative;
+        margin-top: 4rem;
     }
 
     .employee-picture-and-name {
@@ -618,10 +621,6 @@ li::after {
         padding: 2rem 4rem 2rem 2rem;
     }
 
-    #listing-view-container {
-        width: 100%;
-    }
-
     .employee-picture-and-name-listing {
         display: flex;
         align-items: center;
@@ -629,48 +628,22 @@ li::after {
 
     #filter-part-and-llisting-container {
         width: 125%;
-        margin-top: 4rem;
     }
 
-    .view-label {
-        position: absolute;
-        top: 13rem;
-    }
-
-    .grid-label {
-        right: 10rem
-    }
-
-    .list-label {
-        right: 7rem;
-    }
-
-    #list-view-input, #grid-view-input {
+    .listing-view-container {
         display: none;
-    }
-
-    #listing-view-container, #employees-list-grid-view {
-        display: none;
-    }
-
-    #grid-view-input:checked + label + ul {
-        display: grid; 
-        margin-top: 4rem;
-    }
-    
-    #list-view-input:checked + label + div {
-        display: block; 
-        margin-top: 4rem;
-    }
-
-    .grid-view-img {
-        position: absolute;
-        z-index: 2;
-        right: 1rem;
-    }
-
-    #listing-view-container {
+        width: 100%;
         position: relative;
+        margin-top: 4rem;
+    }
+
+    .icon-switcher-container {
+        position: absolute;
+        right: 0;
+    }
+
+    .icon-grid {
+        right: 3rem;
     }
 
     #empty-page {
@@ -696,5 +669,12 @@ li::after {
     #empty-page {
         width: 100%;
     }
-}
 
+    .active-content {
+        display: grid;
+    }
+
+    .content-container {
+        position: relative;
+    }
+}
