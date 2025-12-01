@@ -77,17 +77,17 @@
     <!-- Main Content -->
     <main>
         <div id="search-and-filter">
-            
+
             <!-- Basic and advanced search methods -->
             <div id="search-part">
                 <input type="radio" id="search-version-basic" name="search-tabs" checked="checked"/>
                 <label for="search-version-basic" class="search-version-label basic">BASIC SEARCH</label>
                 <div id="employee-search-container">
-                    <form action="empty.html" class="employee-search-container-form">
+                    <form class="employee-search-container-form">
                         <div id="employee-search-input-container">
-                            <input id="employee-search-input" placeholder="John Smith"/>
+                            <input id="employee-search-input" placeholder="John Smith" oninput='basicSearch(event)'/>
                         </div>
-                        <button class="search-button" >SEARCH</button>
+                        <button class="search-button basic-search-btn">SEARCH</button>
                     </form>
                 </div>
                 
