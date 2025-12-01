@@ -2,7 +2,7 @@
     {
         "_id": 0,
         "isRemoteWork": true,
-        "user_avatar": "https://url.com/image.png",
+        "user_avatar": "./images/user.png",
         "first_name": "Brendar",
         "last_name": "Krueger",
         "first_native_name": "Brendar",
@@ -40,7 +40,7 @@
     {
         "_id": 1,
         "isRemoteWork": true,
-        "user_avatar": "https://url.com/image.png",
+        "user_avatar": "./images/user.png",
         "first_name": "Andrew",
         "last_name": "Savage",
         "first_native_name": "Andrew",
@@ -78,7 +78,7 @@
     {
         "_id": 2,
         "isRemoteWork": false,
-        "user_avatar": "https://url.com/image.png",
+        "user_avatar": "./images/user.png",
         "first_name": "Lula",
         "last_name": "Aguilar",
         "first_native_name": "Lula",
@@ -116,7 +116,7 @@
     {
         "_id": 3,
         "isRemoteWork": false,
-        "user_avatar": "https://url.com/image.png",
+        "user_avatar": "./images/user.png",
         "first_name": "Fintan",
         "last_name": "Cruz",
         "first_native_name": "Fintan",
@@ -154,7 +154,7 @@
     {
         "_id": 4,
         "isRemoteWork": false,
-        "user_avatar": "https://url.com/image.png",
+        "user_avatar": "./images/user.png",
         "first_name": "Suzanne",
         "last_name": "Taylor",
         "first_native_name": "Suzanne",
@@ -192,7 +192,7 @@
     {
         "_id": 5,
         "isRemoteWork": true,
-        "user_avatar": "https://url.com/image.png",
+        "user_avatar": "./images/user.png",
         "first_name": "Francesco",
         "last_name": "Reed",
         "first_native_name": "Francesco",
@@ -230,7 +230,7 @@
     {
         "_id": 6,
         "isRemoteWork": false,
-        "user_avatar": "https://url.com/image.png",
+        "user_avatar": "./images/user.png",
         "first_name": "Asier",
         "last_name": "Illaramendi",
         "first_native_name": "Asier",
@@ -268,7 +268,7 @@
     {
         "_id": 7,
         "isRemoteWork": false,
-        "user_avatar": "https://url.com/image.png",
+        "user_avatar": "./images/user.png",
         "first_name": "Michael",
         "last_name": "Essien",
         "first_native_name": "Michael",
@@ -306,7 +306,7 @@
     {
         "_id": 8,
         "isRemoteWork": true,
-        "user_avatar": "https://url.com/image.png",
+        "user_avatar": "./images/user.png",
         "first_name": "Joselu",
         "last_name": "Mato",
         "first_native_name": "Joselu",
