@@ -19,6 +19,9 @@ const pageBody = [...document.getElementsByTagName('body')];
 const homePageBtn = document.getElementById('home-page-button');
 const searchIcon  = document.getElementById('search-icon');
 
+const employeesAmountLarge = document.querySelector('.employees-amount-large');
+const employeesAmount = document.getElementById('employees-amount');
+
 function renderEmployeesGridViewContent(src, firstName, lastName, department, room) {
     return `
         <li class="employee large-emp">
@@ -98,13 +101,21 @@ const loadEmployees = () => {
             employeesList.innerHTML += renderEmployeesList(employee.user_avatar, employee.first_name, 
                                                     employee.last_name, employee.room);
         }
+        
+        employeesAmount.textContent = `
+            ${allEmployees.length} employees displayed
+        `
+
+        employeesAmountLarge.textContent = `
+            ${allEmployees.length} employees displayed
+        `
     })
-    .catch((err) => console.log('Failed to load', err))
+    .catch((err) => console.log('Failed to load', err));
 }
 
 window.addEventListener('DOMContentLoaded', (event) => {
     loadEmployees();
-})
+});
 
 viewSwitcher.forEach((vs) => vs.addEventListener('click', handleContentChange));
 
@@ -138,6 +149,14 @@ function basicSearch(event) {
                fullName.toLowerCase().includes(searchTerm);
     });
 
+    employeesAmount.textContent = `
+        ${filtered.length} employees displayed
+    `
+    
+    employeesAmountLarge.textContent = `
+        ${filtered.length} employees displayed
+    `
+
     for (employee of filtered) {
         employeesGridViewList.innerHTML += renderEmployeesGridViewContent(employee.user_avatar, employee.first_name, 
                                                     employee.last_name, employee.department, employee.room);
@@ -166,7 +185,7 @@ basicSearchInput.addEventListener('input', basicSearch);
 searchInput.addEventListener('input', basicSearch);
 basicSearchForm.addEventListener('submit', (e) => {
     e.preventDefault();
-})
+});
 
 homePageBtn.addEventListener('click', () => {
     pageBody.map((i) => {
@@ -176,6 +195,5 @@ homePageBtn.addEventListener('click', () => {
     pageHeader.style.display = 'block';
     pageMainContent.style.display = 'block';
 
-    emptyPage.style.display = 'none';
-    
-})
+    emptyPage.style.display = 'none';  
+});

@@ -12,6 +12,17 @@ html {
     font-size: 62.5%;
 }
 
+:root {
+    --primary-blue: #1450af;
+    --background-and-text-white: #fafafa;
+    --primary-grey: #6f7780;
+    --light-grey: #87a4d3;
+    --light-red: #ff8787;
+    --light-blue: #4a84b8;
+    --dark-text: #2d2f32;
+    --border-color: #d9dce1;
+}
+
 body {
     width: 100vw;
     min-height: 100vh;
@@ -20,15 +31,15 @@ body {
 }
 
 #header-information {
-    background-color: #1450af;
+    background-color: var(--primary-blue);
 }
 
 #inner-header-container {
     position: relative;
     padding: 1rem 2rem;
     z-index: 99; 
-    background-color: #1450af; 
-    color: #fafafa;
+    background-color: var(--primary-blue); 
+    color: var(--background-and-text-white);
     width: 100%;
 }
 
@@ -43,7 +54,7 @@ body {
 #ad-title {
     font-size: 3rem;
     font-weight: 900;
-    color: #1450af;
+    color: var(--primary-blue);
 }
 
 
@@ -51,7 +62,7 @@ body {
     font-size: 1rem;
     font-weight: 600;
     margin-top: 1rem;
-    color: #6f7780;
+    color: var(--primary-grey);
 }
 
 
@@ -71,7 +82,7 @@ body {
     width: 75%;
     height: 100%;
     position: relative;
-    background-color: #fafafa;
+    background-color: var(--background-and-text-white);
     overflow-y: auto;
 }
 
@@ -123,8 +134,8 @@ body {
     transform: translateX(-50%);
     display: flex;
     border-radius: 20px;
-    background-color: #0a41a5;
-    color: #fafafa;
+    background-color: var(--primary-blue);
+    color: var(--background-and-text-white);
     padding: 1rem;
     border: none;
     gap: 0.4rem;
@@ -138,7 +149,7 @@ body {
 #sign-out {
     font-size: 1.2rem;
     text-decoration: underline;
-    color: #ff8787;
+    color: var(--light-red);
 }
 
 #menu {
@@ -170,7 +181,7 @@ body {
     font-size: 3rem;
     top: 1.2rem;
     right: 2rem;
-    color: #87a4d3;
+    color: var(--light-grey);
     display: block;
     top: -8rem;
     z-index: 99;
@@ -189,7 +200,7 @@ body {
 
 #header-search {
     padding: 1rem 0;
-    background-color: #0a41a5;
+    background-color: var(--primary-blue);
     display: flex;
     justify-content: center;
     position: relative;
@@ -215,15 +226,17 @@ body {
     height: 100vh;
     padding-top: 3rem;
     padding-inline: 1rem;
-    background-color: #f0f5fa;
+    background-color: var(--background-and-text-white);
     margin: auto;
+    position: relative;
 }
 
 #employees-amount {
     font-size: 1.4rem;
     font-weight: 700;
-    color: #6f7780;
-    margin-left: 2rem;
+    color: var(--primary-grey);
+    position: absolute;
+    left: 2rem;
 }
 
 #employees-list-container {
@@ -239,7 +252,7 @@ body {
 li {
     border-radius: 5px;
     padding: 2rem 1rem 1.5rem 1rem;
-    background-color: #fafafa;
+    background-color: var(--background-and-text-white);
     position: relative;
     border: 0.1rem solid rgb(102, 101, 100, 0.5);
 }
@@ -264,7 +277,7 @@ li::after {
 .name, #profile-owner-name, #address-book {
     font-size: 1.8rem;
     font-weight: 800;
-    color: #2d2f32;
+    color: var(--dark-text);
 }
 
 .job {
@@ -272,7 +285,7 @@ li::after {
     align-items: center;
     gap: 0.2rem;
     font-size: 1.3rem;
-    color: #4a84b8;
+    color: var(--light-blue);
     margin-left: 7rem;
     margin-top: 2rem;
 }
@@ -294,18 +307,22 @@ li::after {
     align-items: center;
     gap: 2rem;
     color: rgb(39, 37, 37);
-    background-color: #fafafa;
+    background-color: var(--background-and-text-white);
 }
 
 #home-page-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fafafa;
-    background-color: #2456ab;
+    color: var(--background-and-text-white);
+    background-color: var(--primary-blue);
     padding: 2rem;
     border: none;
     border-radius: 6px;
+}
+
+ul {
+    list-style: none;
 }
 
 /* Desktop views */
@@ -317,8 +334,9 @@ li::after {
     #address-book-large {
         font-size: 1.6rem;
         font-weight: 600;
-        color: #fafafa;
+        color: var(--background-and-text-white);
         position: relative;
+        display: block;
     }
 
     #address-book-large::after {
@@ -328,14 +346,14 @@ li::after {
         left: 0;
         width: 100%;
         height: 0.6rem;
-        background-color: #518dfa;
+        background-color: var(--light-blue);
     }
     
     #support-button-large {
         display: flex;
         border-radius: 20px;
-        background-color: #0a41a5;
-        color: #fafafa;
+        background-color: var(--primary-blue);
+        color: var(--background-and-text-white);
         padding: 1rem;
         border: none;
         gap: 0.4rem;
@@ -346,8 +364,8 @@ li::after {
         display: flex;
         align-items: center;
         border-radius: 20px;
-        background-color: #0a41a5;
-        color: #fafafa;
+        background-color: var(--primary-blue);
+        color: var(--background-and-text-white);
         padding: 1rem;
         border: none;
         gap: 0.4rem;
@@ -355,7 +373,7 @@ li::after {
 
     #switch-on-off-container {
         border-radius: 50%;
-        background-color: #0a41a5;
+        background-color: var(--primary-blue);
         padding: 1rem;
         border: none;
         cursor: pointer;
@@ -398,7 +416,7 @@ li::after {
     .employees-amount-large {
         font-size: 1.6rem;
         font-weight: 700;
-        color: #6f7780;
+        color: var(--primary-grey);
         position: absolute;
         left: 0;
     }
@@ -418,6 +436,7 @@ li::after {
         gap: 2rem;
         position: relative;
         margin-top: 4rem;
+        padding-top: 4rem;
     }
 
     .employee-picture-and-name {
@@ -462,7 +481,7 @@ li::after {
     }
 
     #employee-search-container {
-        background-color: #fafafa;
+        background-color: var(--background-and-text-white);
         padding: 2rem;
         border-radius: 8px;
         width: 28rem;
@@ -486,30 +505,18 @@ li::after {
         width: 100%;
         height: 4rem;
         padding-left: 3.5rem;
-        border: 1px solid #d9dce1;
+        border: 1px solid var(--border-color);
         border-radius: 4px;
         font-size: 1.4rem;
-        background-color: #fff;
-    }
-
-    #employee-search-input-container::before {
-        content: "search";
-        font-family: "Material Icons";
-        position: absolute;
-        left: 1rem;
-        top: 2rem;
-        transform: translateY(-50%);
-        opacity: 0.5;
-        font-size: 2rem;
-        color: #8592a6;
+        background-color: var(--background-and-text-white);
     }
 
     .search-button {
         width: 100%;
         padding: 1rem;
-        background-color: #4150fa;
+        background-color: var(--primary-blue);
         border: none;
-        color: #ffffff;
+        color: var(--background-and-text-white);
         border-radius: 5px;
         font-size: 1.4rem;
         font-weight: 600;
@@ -522,7 +529,7 @@ li::after {
         flex-direction: column;
         gap: 2rem;
         position: relative;
-        width: 100%;
+        width: 33.3%;
     }
 
     .field-label {
@@ -534,7 +541,7 @@ li::after {
     .search-label {
         font-size: 1.2rem;
         font-weight: 700;
-        color: #2f3132;
+        color: var(--dark-text);
     }
     
     #search-form {
@@ -544,7 +551,7 @@ li::after {
         padding: 2rem;
         display: none;
         margin-top: 4rem;
-        background-color: #fafafa;
+        background-color: var(--background-and-text-white);
     }
 
     .phone-skype {
@@ -584,7 +591,7 @@ li::after {
         position: absolute;
         font-size: 1.6rem;
         font-weight: 600;
-        color: #bfc6cf;
+        color: var(--border-color);
         top: 0;
     }
 
@@ -603,12 +610,12 @@ li::after {
         top: 4rem;
         width: 100%;
         height: 0.2rem;
-        background-color: #0a41a5;
+        background-color: var(--primary-blue);
     }
 
     #listing-view-banner {
         width: 100%;
-        background-color: #fafafa;
+        background-color: var(--background-and-text-white);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -662,16 +669,6 @@ li::after {
         right: 3rem;
     }
 
-    /* #empty-page {
-        display: none;
-        padding: 4rem 10rem;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        color: rgb(39, 37, 37);
-        background-color: #fafafa;
-    } */
-
     #empty-result-title {
         font-size: 4rem;
         opacity: 0.5;
@@ -687,6 +684,7 @@ li::after {
     }
 
     .content-container {
+        width: 66.6%;
         position: relative;
     }
 }
