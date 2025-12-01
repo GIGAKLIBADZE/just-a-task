@@ -200,14 +200,9 @@ body {
     position: relative;
 }
 
-#input-container::before {
+#search-icon {
     position: absolute;
-    content: "search";
-    font-family: "Material Icons";
-    font-size: 2rem;
-    opacity: 0.75;
-    left: 1.5rem;
-    color: #2456ab;
+    left: 1.4rem;
 }
 
 #search-input {
@@ -216,12 +211,12 @@ body {
     border: none;
 }
 
-
-main {
+#main-content {
     height: 100vh;
     padding-top: 3rem;
     padding-inline: 1rem;
     background-color: #f0f5fa;
+    margin: auto;
 }
 
 #employees-amount {
@@ -290,6 +285,27 @@ li::after {
 .employee-picture {
     width: 5rem;
     height: 5rem;
+}
+
+#empty-page {
+    display: none;
+    padding: 4rem 10rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    color: rgb(39, 37, 37);
+    background-color: #fafafa;
+}
+
+#home-page-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fafafa;
+    background-color: #2456ab;
+    padding: 2rem;
+    border: none;
+    border-radius: 6px;
 }
 
 /* Desktop views */
@@ -646,28 +662,24 @@ li::after {
         right: 3rem;
     }
 
-    #empty-page {
-        margin-top: 4rem;
+    /* #empty-page {
+        display: none;
         padding: 4rem 10rem;
-        display: flex;
         flex-direction: column;
         align-items: center;
         gap: 2rem;
         color: rgb(39, 37, 37);
         background-color: #fafafa;
-    }
+    } */
 
     #empty-result-title {
         font-size: 4rem;
+        opacity: 0.5;
     }
 
     #empty-result-desc {
         opacity: 0.5;
         font-size: 2rem;
-    }
-
-    #empty-page {
-        width: 100%;
     }
 
     .active-content {

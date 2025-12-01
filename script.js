@@ -12,6 +12,13 @@ const basicSearchInput = document.getElementById('employee-search-input');
 const searchInput = document.getElementById('search-input');
 const basicSearchForm = document.querySelector('.employee-search-container-form');
 
+const emptyPage = document.getElementById('empty-page');
+const pageHeader = document.getElementById('main-header')
+const pageMainContent = document.getElementById('main-content');
+const pageBody = [...document.getElementsByTagName('body')];
+const homePageBtn = document.getElementById('home-page-button');
+const searchIcon  = document.getElementById('search-icon');
+
 function renderEmployeesGridViewContent(src, firstName, lastName, department, room) {
     return `
         <li class="employee large-emp">
@@ -61,6 +68,18 @@ function renderEmployeesList(src, firstName, lastName, room) {
             </div>
         </li>
     `
+}
+
+function reusableStylesForEmptyPage() { 
+    pageHeader.style.display = 'none';
+    pageMainContent.style.display = 'none';
+
+    emptyPage.style.display = 'flex';
+    pageBody.map((i) => {
+        i.style.display = 'flex';
+        i.style.justifyContent = 'center';
+        i.style.alignItems = 'center';
+    });
 }
 
 let allEmployees = [];
@@ -129,10 +148,34 @@ function basicSearch(event) {
         employeesList.innerHTML += renderEmployeesList(employee.user_avatar, employee.first_name, 
                                                     employee.last_name, employee.room);
     }
+
+    basicSearchForm.addEventListener('submit', () => {
+        if (filtered.length === 0) {
+            reusableStylesForEmptyPage();
+        }
+    });
+
+    searchIcon.addEventListener('click', () => {
+        if (filtered.length === 0) {
+            reusableStylesForEmptyPage();
+        }
+    });
 }
 
 basicSearchInput.addEventListener('input', basicSearch);
 searchInput.addEventListener('input', basicSearch);
 basicSearchForm.addEventListener('submit', (e) => {
     e.preventDefault();
+})
+
+homePageBtn.addEventListener('click', () => {
+    pageBody.map((i) => {
+        i.style.display = 'block';
+    });
+    
+    pageHeader.style.display = 'block';
+    pageMainContent.style.display = 'block';
+
+    emptyPage.style.display = 'none';
+    
 })
