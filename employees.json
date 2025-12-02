@@ -14,7 +14,8 @@
         "date_birth": 
         {
             "year": 1901,
-            "month": 1,"day": 1
+            "month": 1,
+            "day": 1
         },
         "desk_number": 20,
         "manager": 
@@ -67,6 +68,14 @@
         "cnumber": "C5336110",
         "citizenship": "Georgia",
         "visa": [
+            {
+                "issuing_country": "Poland",
+                "type": "National visa type D",
+                "start_date": 1652158800000,
+                "end_date": 1683608400000
+            }
+        ],
+        "visa2": [
             {
                 "issuing_country": "Poland",
                 "type": "National visa type D",
@@ -143,6 +152,14 @@
         "cnumber": "C5336112",
         "citizenship": "Georgia",
         "visa": [
+            {
+                "issuing_country": "Poland",
+                "type": "National visa type D",
+                "start_date": 1652158800000,
+                "end_date": 1683608400000
+            }
+        ],
+        "visa2": [
             {
                 "issuing_country": "Poland",
                 "type": "National visa type D",
@@ -257,6 +274,14 @@
         "cnumber": "C5336182",
         "citizenship": "Georgia",
         "visa": [
+            {
+                "issuing_country": "Poland",
+                "type": "National visa type D",
+                "start_date": 1652158800000,
+                "end_date": 1683608400000
+            }
+        ],
+        "visa2": [
             {
                 "issuing_country": "Poland",
                 "type": "National visa type D",

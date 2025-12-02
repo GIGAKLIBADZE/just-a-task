@@ -12,6 +12,10 @@ html {
     font-size: 62.5%;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 :root {
     --primary-blue: #1450af;
     --background-and-text-white: #fafafa;
