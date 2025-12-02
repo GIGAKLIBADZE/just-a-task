@@ -329,8 +329,58 @@ ul {
     list-style: none;
 }
 
+#employees-main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#employee-detailed-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    font-size: 2rem;
+}
+
+
 /* Desktop views */
 @media (min-width: 1440px) {
+    #employees-main-content {
+        flex-direction: row;
+    }   
+
+    #employee-detailed-overview section {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    #employee-detailed-overview section div {
+        display: flex;
+        justify-content: space-between; 
+    }
+
+    #employee-detailed-overview section div input{
+        border: none;
+    }
+
+    .employee-general-overview-picture {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    #employee-general-overview p{
+       font-size: 2rem;
+       color: var(--dark-text);
+    }
+
+    #employee-general-overview button{
+       font-size: 2rem;
+       color: var(--background-and-text-white);
+       background-color: var(--primary-blue);
+       padding: 2rem;
+       border: none;
+    }
+
     #hamburger, #menu, #profile-container, #header-search, #employees-amount, #employees-list-container, #employees-list {
         display: none;
     }

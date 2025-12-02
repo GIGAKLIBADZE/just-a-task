@@ -80,9 +80,9 @@ function renderEmployeesList(src, firstName, lastName, room, id) {
 
 function renderHeaderContent() {
     return `
-        <div id="header-information">
+        <div id="header-information"">
             <div id="inner-header-container">
-                <p id="company">LEVERX</p>
+                <a  href="index.html" id="company">LEVERX</a>
                 <h1 id="title">EMPLOYEE SERVICES</h1>
             </div>
             <div id="header-search">
@@ -128,8 +128,10 @@ function renderHeaderContent() {
                         <p>SUPPORT</p>
                     </button>
                     <div id="profile-large">
-                        <img src="./images/user.png" alt="Your profile icon" width="20px" height="20px"/>
-                        <span>STEVE COOK</span>
+                        <a style="width: 100%" href="employeeDetails.html?id=1">
+                            <img src="./images/user.png" alt="Your profile icon" width="20px" height="20px"/>
+                            <span>STEVE COOK</span>
+                        </a>
                     </div>
                 </div>
                 <div id="switch-on-off-container">
@@ -257,7 +259,7 @@ function renderEmployeeDetails(emp) {
                 </div>
                 <button>
                     <img src="images/edit.png" alt="Edit" class="edit-icon" width="10px" height="10px" />
-                    <span>EDIT</span>
+                    <span id="edit-button">EDIT</span>
                 </button>
             </div>
             <div id="employee-detailed-overview">
@@ -380,6 +382,20 @@ function renderEmployeeDetails(emp) {
             </div>
         `
 }
+
+const editBtn = document.getElementById('edit-btn');
+
+document.addEventListener('click', (event) => {
+    if (event.target.id === 'edit-button') {
+
+        const inputs = document.querySelectorAll('#employee-detailed-overview input');
+
+        inputs.forEach((input) => {
+            input.removeAttribute('readonly');
+            input.style.border = "1px solid black";
+        });
+    }
+});
 
 window.addEventListener('DOMContentLoaded', (event) => {
     loadEmployees();
