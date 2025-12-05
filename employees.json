@@ -73,16 +73,14 @@
                 "type": "National visa type D",
                 "start_date": 1652158800000,
                 "end_date": 1683608400000
-            }
-        ],
-        "visa2": [
+            },
             {
                 "issuing_country": "Poland",
                 "type": "National visa type D",
                 "start_date": 1652158800000,
                 "end_date": 1683608400000
             }
-        ] 
+        ]
     },
     {
         "_id": 2,
@@ -157,16 +155,14 @@
                 "type": "National visa type D",
                 "start_date": 1652158800000,
                 "end_date": 1683608400000
-            }
-        ],
-        "visa2": [
+            },
             {
                 "issuing_country": "Poland",
                 "type": "National visa type D",
                 "start_date": 1652158800000,
                 "end_date": 1683608400000
             }
-        ] 
+        ]
     },
     {
         "_id": 4,
@@ -279,16 +275,14 @@
                 "type": "National visa type D",
                 "start_date": 1652158800000,
                 "end_date": 1683608400000
-            }
-        ],
-        "visa2": [
+            },
             {
                 "issuing_country": "Poland",
                 "type": "National visa type D",
                 "start_date": 1652158800000,
                 "end_date": 1683608400000
             }
-        ] 
+        ]
     },
     {
         "_id": 7,

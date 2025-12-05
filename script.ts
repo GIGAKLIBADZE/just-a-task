@@ -1,32 +1,87 @@
-"use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-const employeesGridViewList = document.querySelector('.employees-list-grid-view');
-const employeesListingViewList = document.getElementById('employees-list-listing-view');
-const employeesList = document.getElementById('employees-list');
-const viewSwitcher = [...document.querySelectorAll('.icon-switcher-container')];
+// All of the types below declared with 'type' for for employees
+type TBirthDate = {
+    year: 1901,
+    month: 1,
+    day: 1
+}
+
+type TManager = {
+    id: 0,
+    first_name: "John",
+    last_name: "Snow"
+}
+
+type TVisa = {
+    issuing_country: "Poland",
+    type: "National visa type D",
+    start_date: 1652158800000,
+    end_date: 1683608400000
+}
+
+type TVisas = TVisa[];
+
+
+type TEmployee = {
+    _id: 0,
+    isRemoteWork: true,
+    user_avatar: "./images/user.png",
+    first_name: "Brendar",
+    last_name: "Krueger",
+    first_native_name: "Brendar",
+    last_native_name: "Krueger",
+    middle_native_name: "D.",
+    department: "Web & Mobile",
+    building: "Pilsudskiego 69 (Poland)",
+    room: "1404",
+    date_birth: TBirthDate,
+    desk_number: 20,
+    manager: TManager,
+    phone: "+12931293129",
+    email: "brendar.krueger@leverx.com",
+    telegram: "gigaklibadze",
+    cnumber: "C5336116",
+    citizenship: "Georgia",
+    visa: TVisas
+}
+
+type TEmployees = TEmployee[];
+
+const employeesGridViewList = document.querySelector('.employees-list-grid-view') as HTMLUListElement;
+const employeesListingViewList = document.getElementById('employees-list-listing-view') as HTMLUListElement;
+const employeesList = document.getElementById('employees-list') as HTMLUListElement;
+
+const viewSwitcher = [...document.querySelectorAll('.icon-switcher-container')] as HTMLDivElement[];
 const content = [
-    document.querySelector('.employees-list-grid-view'),
-    document.querySelector('.listing-view-container')
-];
-const basicSearchInput = document.getElementById('employee-search-input');
-const emptyPage = document.getElementById('empty-page');
-const pageHeader = document.querySelector('.main-header');
-const pageMainContent = document.getElementById('main-content');
-const pageBody = [...document.getElementsByTagName('body')];
-const homePageBtn = document.getElementById('home-page-button');
-const employeesAmountLarge = document.querySelector('.employees-amount-large');
-const employeesAmount = document.getElementById('employees-amount');
-const employeesMainContent = document.getElementById('employees-main-content');
-function renderEmployeesGridViewContent(args) {
-    const { src, firstName, lastName, department, room, id } = args;
+    document.querySelector('.employees-list-grid-view') as HTMLUListElement,
+    document.querySelector('.listing-view-container') as HTMLUListElement
+]
+
+const basicSearchInput = document.getElementById('employee-search-input') as HTMLInputElement;
+
+const emptyPage = document.getElementById('empty-page') as HTMLDivElement;
+const pageHeader = document.querySelector('.main-header') as HTMLElement;
+const pageMainContent = document.getElementById('main-content') as HTMLElement;
+const pageBody = [...document.getElementsByTagName('body')] as HTMLBodyElement[];
+const homePageBtn = document.getElementById('home-page-button') as HTMLButtonElement;
+
+const employeesAmountLarge = document.querySelector('.employees-amount-large') as HTMLParagraphElement;
+const employeesAmount = document.getElementById('employees-amount') as HTMLParagraphElement;
+
+const employeesMainContent = document.getElementById('employees-main-content') as HTMLElement;
+
+// This is the type for every function which renders employees somehow
+type TRenderEmployeesArguments = {
+    src: string;
+    firstName: string;
+    lastName: string;
+    department: string;
+    room: string;
+    id: number
+}
+
+function renderEmployeesGridViewContent(args: TRenderEmployeesArguments): string {
+    const { src,firstName, lastName, department, room, id } = args
+
     return `
         <a href="employeeDetails.html?id=${id}" > 
             <li class="employee large-emp">
@@ -44,10 +99,12 @@ function renderEmployeesGridViewContent(args) {
                 </div>
             </li>
         </a>
-    `;
+    `
 }
-function renderEmployeesListViewContent(args) {
-    const { src, firstName, lastName, department, room, id } = args;
+
+function renderEmployeesListViewContent(args: TRenderEmployeesArguments): string {
+    const { src,firstName, lastName, department, room, id } = args
+
     return `
          <a href="employeeDetails.html?id=${id}" >
             <li class="employee large-emp-listing banner-part" href="employeeDetails.html?id=${id}">
@@ -61,10 +118,12 @@ function renderEmployeesListViewContent(args) {
                 </div>
             </li>
         </a>
-    `;
+    `
 }
-function renderEmployeesList(args) {
-    const { src, firstName, lastName, department, room, id } = args;
+
+function renderEmployeesList(args: TRenderEmployeesArguments): string {
+    const { src,firstName, lastName, department, room, id } = args
+
     return `
         <a href="employeeDetails.html?id=${id}" >
             <li class="employee" href="employeeDetails.html?id=${id}"> 
@@ -80,9 +139,10 @@ function renderEmployeesList(args) {
                 </div>
             </li>
         </a>
-    `;
+    `
 }
-function renderHeaderContent() {
+
+function renderHeaderContent(): string {
     return `
         <div id="header-information">
             <div id="inner-header-container">
@@ -143,15 +203,19 @@ function renderHeaderContent() {
                 </div>
             </div>
         </div>
-    `;
+    `
 }
+
 pageHeader.innerHTML = renderHeaderContent();
-const searchIcon = document.getElementById('search-icon');
-const searchInput = document.getElementById('search-input');
-const basicSearchForm = document.querySelector('.employee-search-container-form');
-function reusableStylesForEmptyPage() {
+
+const searchIcon  = document.getElementById('search-icon') as HTMLImageElement;
+const searchInput = document.getElementById('search-input') as HTMLInputElement;
+const basicSearchForm = document.querySelector('.employee-search-container-form') as HTMLFormElement;
+
+function reusableStylesForEmptyPage(): void { 
     pageHeader.style.display = 'none';
     pageMainContent.style.display = 'none';
+
     emptyPage.style.display = 'flex';
     pageBody.map((i) => {
         i.style.display = 'flex';
@@ -159,88 +223,104 @@ function reusableStylesForEmptyPage() {
         i.style.alignItems = 'center';
     });
 }
-let allEmployees = [];
-const loadEmployees = () => {
+
+let allEmployees: TEmployees = [];
+
+const loadEmployees = (): void => {
     fetch('employees.json')
-        .then((response) => response.json())
-        .then((employees) => {
+    .then((response) => response.json())
+    .then((employees: TEmployees) => {
         allEmployees = employees;
         for (let employee of employees) {
-            const reusableEmployeesData = {
+
+            const reusableEmployeesData: TRenderEmployeesArguments = {
                 src: employee.user_avatar,
                 firstName: employee.first_name,
                 lastName: employee.last_name,
                 department: employee.department,
                 room: employee.room,
                 id: employee._id
-            };
+            }
+
             employeesGridViewList.innerHTML += renderEmployeesGridViewContent(reusableEmployeesData);
+
             employeesListingViewList.innerHTML += renderEmployeesListViewContent(reusableEmployeesData);
+
             employeesList.innerHTML += renderEmployeesList(reusableEmployeesData);
         }
+        
         employeesAmount.textContent = `
             ${allEmployees.length} employees displayed
-        `;
+        `
+
         employeesAmountLarge.textContent = `
             ${allEmployees.length} employees displayed
-        `;
+        `
     })
-        .catch((err) => console.log('Failed to load', err));
-};
+    .catch((err) => console.log('Failed to load', err));
+}
+
+
 const urlParams = new URLSearchParams(window.location.search);
 const employeeId = Number(urlParams.get('id'));
-function fetchEmployeeDetails() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const response = yield fetch('employees.json');
-            if (!response.ok) {
-                throw new Error('Something went wrong.');
-            }
-            const employeesData = yield response.json();
-            return employeesData;
+async function fetchEmployeeDetails(): Promise<TEmployees | undefined> {
+    try {   
+        const response = await fetch('employees.json');
+
+        if (!response.ok) {
+            throw new Error('Something went wrong.')
         }
-        catch (err) {
-            console.log('Failed to load', err);
-            return;
-        }
-    });
+        
+        const employeesData = await response.json();
+        return employeesData;
+    } catch (err) {
+        console.log('Failed to load', err);
+        return;
+    }
 }
-function loadEmployeeDetails() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const employees = yield fetchEmployeeDetails();
-        const currentEmployee = employees === null || employees === void 0 ? void 0 : employees.find((d) => d._id === employeeId);
-        if (currentEmployee) {
-            employeesMainContent.innerHTML = renderEmployeeDetails(currentEmployee);
-        }
-    });
+
+async function loadEmployeeDetails(): Promise<void>{
+    const employees = await fetchEmployeeDetails();
+
+    const currentEmployee = employees?.find((d: TEmployee) => d._id === employeeId);
+
+    if (currentEmployee) {
+        employeesMainContent.innerHTML = renderEmployeeDetails(currentEmployee);
+    }
 }
-function formatDate(timestamp) {
+
+function formatDate(timestamp: number): string {
     const date = new Date(timestamp);
+
     return date.toLocaleDateString("en-GB", {
         day: "2-digit",
         month: "short",
         year: "numeric"
     });
 }
-function formatVisaDate(creation, expiration) {
+
+function formatVisaDate(creation: number, expiration: number): string {
     return `${formatDate(creation)} - ${formatDate(expiration)}`;
 }
-function renderEmployeeDetails(emp) {
+
+function renderEmployeeDetails(emp: TEmployee): string {
     let secondVisa = '';
     let secondVisaDates = '';
-    const dateBirthInfo = emp.date_birth;
+
+    const dateBirthInfo = emp.date_birth
     const birthDate = new Date(dateBirthInfo.year, dateBirthInfo.month - 1, dateBirthInfo.day)
         .toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
     const visaDates = formatVisaDate(emp.visa[0].start_date, emp.visa[0].end_date);
+
     if (emp.visa[1]) {
         secondVisa = emp.visa[1].type;
         secondVisaDates = formatVisaDate(emp.visa[1].start_date, emp.visa[1].end_date);
-    }
-    else {
+    } else {
         secondVisa = "-";
         secondVisaDates = "-";
     }
-    return `
+    
+        return `
             <div id="employee-general-overview">
                 <img src="${emp.user_avatar}" alt="Employee profile picture" class="employee-general-overview-picture" width="50px" height="50px"/>
                 <p>${emp.first_name}</p>
@@ -372,92 +452,123 @@ function renderEmployeeDetails(emp) {
                 </section>
 
             </div>
-        `;
+        `
 }
-const editBtn = document.getElementById('edit-btn');
+
+const editBtn = document.getElementById('edit-btn') as HTMLButtonElement;
+
 document.addEventListener('click', (event) => {
-    const targetEl = event.target;
-    if ((targetEl === null || targetEl === void 0 ? void 0 : targetEl.id) === 'edit-button') {
-        const inputs = document.querySelectorAll('#employee-detailed-overview input');
-        inputs.forEach((input) => {
+    const targetEl = event.target as HTMLElement
+
+    if (targetEl?.id === 'edit-button') {
+
+        const inputs = document.querySelectorAll<HTMLInputElement>('#employee-detailed-overview input');
+
+        inputs.forEach((input: HTMLInputElement) => {
             input.removeAttribute('readonly');
             input.style.border = "1px solid black";
         });
     }
 });
+
 window.addEventListener('DOMContentLoaded', (event) => {
     loadEmployees();
     loadEmployeeDetails();
 });
-viewSwitcher.forEach((vs) => vs.addEventListener('click', handleContentChange));
-let index = 0;
-function handleContentChange(event) {
-    const targetEl = event.currentTarget;
-    if (viewSwitcher.indexOf(targetEl) === index)
-        return;
+
+viewSwitcher.forEach((vs: HTMLDivElement) => vs.addEventListener('click', handleContentChange));
+
+let index = 0
+function handleContentChange(event: MouseEvent): void {
+    const targetEl = event.currentTarget as HTMLDivElement
+
+    if (viewSwitcher.indexOf(targetEl) === index) return;
+
     const currentEl = event.currentTarget;
+
     content[index].classList.remove('active-content');
+
     index = viewSwitcher.indexOf(targetEl);
+
     content[index].classList.add('active-content');
 }
-function doSearch(searchTerm) {
+
+function doSearch(searchTerm: string): void {
     let searchChars = searchTerm.toLowerCase();
+
     employeesGridViewList.innerHTML = "";
     employeesListingViewList.innerHTML = "";
     employeesList.innerHTML = "";
-    const filtered = allEmployees.filter((employee) => {
+
+    const filtered = allEmployees.filter((employee: TEmployee) => {
         const fullName = employee.first_name + ' ' + employee.last_name;
-        return employee.first_name.toLowerCase().includes(searchChars) ||
-            employee.last_name.toLowerCase().includes(searchChars) ||
-            employee._id === Number(searchChars) ||
-            fullName.toLowerCase().includes(searchChars);
+        return employee.first_name.toLowerCase().includes(searchChars) || 
+               employee.last_name.toLowerCase().includes(searchChars) ||
+               employee._id === Number(searchChars) ||
+               fullName.toLowerCase().includes(searchChars);
     });
+
     employeesAmount.textContent = `
         ${filtered.length} employees displayed
-    `;
+    `
+    
     employeesAmountLarge.textContent = `
         ${filtered.length} employees displayed
-    `;
+    `
+
     for (let filteredEmployee of filtered) {
-        const reusableEmployeesData = {
-            src: filteredEmployee.user_avatar,
-            firstName: filteredEmployee.first_name,
-            lastName: filteredEmployee.last_name,
-            department: filteredEmployee.department,
-            room: filteredEmployee.room,
-            id: filteredEmployee._id
-        };
+
+        const reusableEmployeesData: TRenderEmployeesArguments = {
+                src: filteredEmployee.user_avatar,
+                firstName: filteredEmployee.first_name,
+                lastName: filteredEmployee.last_name,
+                department: filteredEmployee.department,
+                room: filteredEmployee.room,
+                id: filteredEmployee._id
+            }
+
         employeesGridViewList.innerHTML += renderEmployeesGridViewContent(reusableEmployeesData);
+
         employeesListingViewList.innerHTML += renderEmployeesListViewContent(reusableEmployeesData);
+
         employeesList.innerHTML += renderEmployeesList(reusableEmployeesData);
     }
+
     if (filtered.length === 0) {
         reusableStylesForEmptyPage();
     }
 }
-function syncInputs(value) {
-    if (basicSearchInput.value !== value)
-        basicSearchInput.value = value;
-    if (searchInput.value !== value)
-        searchInput.value = value;
+
+function syncInputs(value: string): void {
+    if (basicSearchInput.value !== value) basicSearchInput.value = value;
+    if (searchInput.value !== value) searchInput.value = value;
 }
+
 basicSearchForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const inputValue = basicSearchInput.value;
+
+    const inputValue =basicSearchInput.value;
+
     doSearch(inputValue);
     syncInputs(inputValue);
 });
+
 searchIcon.addEventListener('click', (e) => {
     e.preventDefault();
-    const inputValue = searchInput.value;
+
+    const inputValue =searchInput.value;
+
     doSearch(inputValue);
     syncInputs(inputValue);
 });
+
 homePageBtn.addEventListener('click', () => {
     pageBody.map((i) => {
         i.style.display = 'block';
     });
+    
     pageHeader.style.display = 'block';
     pageMainContent.style.display = 'block';
-    emptyPage.style.display = 'none';
+
+    emptyPage.style.display = 'none';  
 });
