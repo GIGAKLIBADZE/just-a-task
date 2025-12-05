@@ -45,7 +45,7 @@ function renderEmployeesGridViewContent(src, firstName, lastName, department, ro
 function renderEmployeesListViewContent(src, firstName, lastName, department, room, id) {
     return `
          <a href="employeeDetails.html?id=${id}" >
-            <li class="employee large-emp-listing banner-part" href="employeeDetails.html?id=${id}>
+            <li class="employee large-emp-listing banner-part" href="employeeDetails.html?id=${id}">
                 <div class="employee-picture-and-name-listing first-part">
                     <img src="${src}" class="employee-picture-listing" alt="${firstName} ${lastName}" width="50px" height="50px"/>
                     <span class="name">${firstName} ${lastName}</span>
@@ -62,7 +62,7 @@ function renderEmployeesListViewContent(src, firstName, lastName, department, ro
 function renderEmployeesList(src, firstName, lastName, room, id) {
     return `
         <a href="employeeDetails.html?id=${id}" >
-            <li class="employee" href="employeeDetails.html?id=${id}> 
+            <li class="employee" href="employeeDetails.html?id=${id}"> 
                 <div class="employee-picture-and-name">
                     <img src="${src}" class="employee-picture" alt="${firstName} ${lastName}" />
                     <span class="name">${firstName} ${lastName}</span>
@@ -80,7 +80,7 @@ function renderEmployeesList(src, firstName, lastName, room, id) {
 
 function renderHeaderContent() {
     return `
-        <div id="header-information"">
+        <div id="header-information">
             <div id="inner-header-container">
                 <a  href="index.html" id="company">LEVERX</a>
                 <h1 id="title">EMPLOYEE SERVICES</h1>
@@ -242,7 +242,7 @@ function renderEmployeeDetails(emp) {
 
     if (emp.visa2) {
         secondVisa = emp.visa2[0].type;
-        secondVisaDates = formatVisaDate(emp.visa2[0].start_date, emp.visa2[0].end);
+        secondVisaDates = formatVisaDate(emp.visa2[0].start_date, emp.visa2[0].end_date);
     } else {
         secondVisa = "-";
         secondVisaDates = "-";
@@ -417,21 +417,20 @@ function handleContentChange(event) {
     content[index].classList.add('active-content');
 }
 
-function basicSearch(event) {
-    event.preventDefault()
 
-    let searchTerm = event.target.value.toLowerCase();
-    
+function doSearch(searchTerm) {
+    let searchChars = searchTerm.toLowerCase();
+
     employeesGridViewList.innerHTML = "";
     employeesListingViewList.innerHTML = "";
     employeesList.innerHTML = "";
 
     const filtered = allEmployees.filter((employee) => {
         const fullName = employee.first_name + ' ' + employee.last_name;
-        return employee.first_name.toLowerCase().includes(searchTerm) || 
-               employee.last_name.toLowerCase().includes(searchTerm) ||
-               employee._id === Number(searchTerm) ||
-               fullName.toLowerCase().includes(searchTerm);
+        return employee.first_name.toLowerCase().includes(searchChars) || 
+               employee.last_name.toLowerCase().includes(searchChars) ||
+               employee._id === Number(searchChars) ||
+               fullName.toLowerCase().includes(searchChars);
     });
 
     employeesAmount.textContent = `
@@ -450,26 +449,35 @@ function basicSearch(event) {
                                                     employee.last_name, employee.department, employee.room, employee._id);
 
         employeesList.innerHTML += renderEmployeesList(employee.user_avatar, employee.first_name, 
-                                                    employee.last_name, employee.room);
+                                                    employee.last_name, employee.room, employee._id);
     }
 
-    basicSearchForm.addEventListener('submit', () => {
-        if (filtered.length === 0) {
-            reusableStylesForEmptyPage();
-        }
-    });
-
-    searchIcon.addEventListener('click', () => {
-        if (filtered.length === 0) {
-            reusableStylesForEmptyPage();
-        }
-    });
+    if (filtered.length === 0) {
+        reusableStylesForEmptyPage();
+    }
 }
 
-basicSearchInput.addEventListener('input', basicSearch);
-searchInput.addEventListener('input', basicSearch);
+function syncInputs(value) {
+    if (basicSearchInput.value !== value) basicSearchInput.value = value;
+    if (searchInput.value !== value) searchInput.value = value;
+}
+
 basicSearchForm.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    const inputValue =basicSearchInput.value;
+
+    doSearch(inputValue);
+    syncInputs(inputValue);
+});
+
+searchIcon.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const inputValue =searchInput.value;
+
+    doSearch(inputValue);
+    syncInputs(inputValue);
 });
 
 homePageBtn.addEventListener('click', () => {
