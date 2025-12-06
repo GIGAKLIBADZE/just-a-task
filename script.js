@@ -9,9 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 // Protect the sign-in page from the unauthenticated user
-const user = localStorage.getItem("user");
-if (!user)
+const isSignInPage = window.location.pathname.includes("sign-in.html");
+if (!isSignInPage) {
     window.location.href = "/authenticate/sign-in.html";
+}
 const employeesGridViewList = document.querySelector('.employees-list-grid-view');
 const employeesListingViewList = document.getElementById('employees-list-listing-view');
 const employeesList = document.getElementById('employees-list');

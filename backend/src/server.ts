@@ -9,15 +9,21 @@ const PORT = 3000;
 app.use(cors());
 app.use(express.json());
 
-const users = JSON.parse(fs.readFileSync("./src/data/users.json", "utf-8"));
+const employees = JSON.parse(
+  fs.readFileSync("./src/data/employees.json", "utf-8")
+);
 
-app.get("/users", ( res: Response) => {
-    res.json(users);
+app.get("/employees", (req: Request, res: Response) => {
+  res.json(employees);
 });
 
-app.get("/users/:id", (req: Request, res: Response) => {
+app.get("/employees", ( res: Response) => {
+    res.json(employees);
+});
+
+app.get("/employees/:id", (req: Request, res: Response) => {
     const id = Number(req.params.id);
-    const user = users.find((u: any) => u.id === id);
+    const user = employees.find((u: any) => u.id === id);
 
     if (!user) return res.status(404).json({ message: "User not found" });
 
@@ -27,27 +33,29 @@ app.get("/users/:id", (req: Request, res: Response) => {
 app.post("/sign-in", async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
-    const user = users.find((u: any) => u.email === email);
+    const employee = employees.find((emp: any) => emp.email === email);
 
-    if (!user) {
-      return res.status(400).json({ message: "Invalid email or password" });
+    if (!employee) {
+        return res.status(400).json({ message: "Invalid email or password" });
     }
 
-    const isPasswordValid = await bcrypt.compare(password, user.password);
+    const isPasswordValid = await bcrypt.compare(password, employee.password);
 
     if (!isPasswordValid) {
-      return res.status(400).json({ message: "Invalid email or password" });
+        return res.status(400).json({ message: "Invalid email or password" });
     }
 
-    return res.json({
-      message: "Success",
-      user: {
-        id: user.id,
-        first_name: user.first_name,
-        last_name: user.last_name,
-      },
+    res.json({
+        message: "Success",
+        user: {
+            id: employee._id,
+            first_name: employee.first_name,
+            last_name: employee.last_name,
+        }
     });
 });
+
+
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);

@@ -1,7 +1,9 @@
 // Protect the sign-in page from the unauthenticated user
-const user = localStorage.getItem("user");
+const isSignInPage = window.location.pathname.includes("sign-in.html");
 
-if (!user) window.location.href = "/authenticate/sign-in.html";
+if (!isSignInPage) {
+  window.location.href = "/authenticate/sign-in.html";
+}
 
 // All of the types below declared with 'type' for for employees
 type TBirthDate = {

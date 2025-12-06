@@ -2,11 +2,11 @@
 
 ## Name
 
-LeverX second lecture project
+LeverX third lecture project
 
 ## Description
 
-I built a page with plain HTML/CSS which accepts next criterias:
+I built a page with plain HTML/CSS/JS and use integrate local backend which accepts next criterias:
 
 - Responsive header (mobile + desktop)
 - Basic and Advanced search options
@@ -17,6 +17,11 @@ I built a page with plain HTML/CSS which accepts next criterias:
 - dynamic employees details
 - allowing editeble data for employee details
 - implement basic search functionality
+- sign-in funcitonality
+- loga-out functionality
+- Proper redirection on the home page
+- allow password confirmation
+- transfer js into ts
 
 ## Features
 
@@ -27,14 +32,10 @@ I built a page with plain HTML/CSS which accepts next criterias:
 - Employee list page
 - Dynamic data
 - Properly handled redirection logic through the pages and URLs.
+- optimized code with ts
+- sign-in and sign-out functionalities
 
 ## Workflow
 
-For the second HW first of all I created the JSON file. With fetch API retreive it and use this for all neccessary part.
-Implement basic search. Then fix errors from the previous HW and continue working with building employees details page.
-
-## Technologies
-
-- Plain HTML
-- Plain CSS
-- Plain JS
+For the second HW first of all I created sign-in funcitonality. Create the local backend.
+Implement sign-out functionality with RWD. Then fix some errors from the previous HW, some needs to take more time for the next one.

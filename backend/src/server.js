@@ -15,34 +15,37 @@ const app = express();
 const PORT = 3000;
 app.use(cors());
 app.use(express.json());
-const users = JSON.parse(fs.readFileSync("./src/data/users.json", "utf-8"));
-app.get("/users", (res) => {
-    res.json(users);
+const employees = JSON.parse(fs.readFileSync("./src/data/employees.json", "utf-8"));
+app.get("/employees", (req, res) => {
+    res.json(employees);
 });
-app.get("/users/:id", (req, res) => {
+app.get("/employees", (res) => {
+    res.json(employees);
+});
+app.get("/employees/:id", (req, res) => {
     const id = Number(req.params.id);
-    const user = users.find((u) => u.id === id);
+    const user = employees.find((u) => u.id === id);
     if (!user)
         return res.status(404).json({ message: "User not found" });
     res.json(user);
 });
 app.post("/sign-in", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
-    const user = users.find((u) => u.email === email);
-    if (!user) {
+    const employee = employees.find((emp) => emp.email === email);
+    if (!employee) {
         return res.status(400).json({ message: "Invalid email or password" });
     }
-    const isPasswordValid = yield bcrypt.compare(password, user.password);
+    const isPasswordValid = yield bcrypt.compare(password, employee.password);
     if (!isPasswordValid) {
         return res.status(400).json({ message: "Invalid email or password" });
     }
-    return res.json({
+    res.json({
         message: "Success",
         user: {
-            id: user.id,
-            first_name: user.first_name,
-            last_name: user.last_name,
-        },
+            id: employee._id,
+            first_name: employee.first_name,
+            last_name: employee.last_name,
+        }
     });
 }));
 app.listen(PORT, () => {
