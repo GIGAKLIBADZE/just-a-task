@@ -152,7 +152,7 @@ function renderHeaderContent(): string {
     return `
         <div id="header-information">
             <div id="inner-header-container">
-                <a  href="index.html" id="company">LEVERX</a>
+                <p href="index.html" id="company">LEVERX</p>
                 <h1 id="title">EMPLOYEE SERVICES</h1>
             </div>
             <div id="header-search">
@@ -223,21 +223,28 @@ const cancelSignOut = document.getElementById('cancel-sign-out') as HTMLButtonEl
 const confirmSignOut = document.getElementById('confirm-sign-out') as HTMLButtonElement;
 const turnOnOffImg = document.getElementById('turn-on-off') as HTMLImageElement;
 
+const innerHeaderContainer = document.getElementById('inner-header-container') as HTMLDivElement;
+
 signOutText?.addEventListener('click', () => {
     sigOutPopUpContainer ? sigOutPopUpContainer.style.display = "block" : "";
 });
 
-cancelSignOut.addEventListener('click', () => {
+cancelSignOut?.addEventListener('click', () => {
     sigOutPopUpContainer ? sigOutPopUpContainer.style.display = "none" : "";
 });
 
-confirmSignOut.addEventListener('click', () => {
+confirmSignOut?.addEventListener('click', () => {
     window.location.href = './authenticate/sign-in.html';
 });
 
 turnOnOffImg.addEventListener('click', () => {
     sigOutPopUpContainer ? sigOutPopUpContainer.style.display = "block" : "";
 });
+
+innerHeaderContainer?.addEventListener('click', () => {
+    window.location.href = './index.html';
+})
+
 
 
 function reusableStylesForEmptyPage(): void { 

@@ -90,7 +90,7 @@ function renderHeaderContent() {
     return `
         <div id="header-information">
             <div id="inner-header-container">
-                <a  href="index.html" id="company">LEVERX</a>
+                <p href="index.html" id="company">LEVERX</p>
                 <h1 id="title">EMPLOYEE SERVICES</h1>
             </div>
             <div id="header-search">
@@ -158,17 +158,21 @@ const sigOutPopUpContainer = document.getElementById('sign-out-pop-up-container'
 const cancelSignOut = document.getElementById('cancel-sign-out');
 const confirmSignOut = document.getElementById('confirm-sign-out');
 const turnOnOffImg = document.getElementById('turn-on-off');
+const innerHeaderContainer = document.getElementById('inner-header-container');
 signOutText === null || signOutText === void 0 ? void 0 : signOutText.addEventListener('click', () => {
     sigOutPopUpContainer ? sigOutPopUpContainer.style.display = "block" : "";
 });
-cancelSignOut.addEventListener('click', () => {
+cancelSignOut === null || cancelSignOut === void 0 ? void 0 : cancelSignOut.addEventListener('click', () => {
     sigOutPopUpContainer ? sigOutPopUpContainer.style.display = "none" : "";
 });
-confirmSignOut.addEventListener('click', () => {
+confirmSignOut === null || confirmSignOut === void 0 ? void 0 : confirmSignOut.addEventListener('click', () => {
     window.location.href = './authenticate/sign-in.html';
 });
 turnOnOffImg.addEventListener('click', () => {
     sigOutPopUpContainer ? sigOutPopUpContainer.style.display = "block" : "";
+});
+innerHeaderContainer === null || innerHeaderContainer === void 0 ? void 0 : innerHeaderContainer.addEventListener('click', () => {
+    window.location.href = './index.html';
 });
 function reusableStylesForEmptyPage() {
     pageHeader.style.display = 'none';
