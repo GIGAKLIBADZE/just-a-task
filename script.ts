@@ -74,27 +74,6 @@ const employeesAmount = document.getElementById('employees-amount') as HTMLParag
 
 const employeesMainContent = document.getElementById('employees-main-content') as HTMLElement;
 
-// const signInForm = document.getElementById('sign-in-form') as HTMLFormElement;
-// const signInEmail = document.getElementById('email') as HTMLInputElement;
-// const signInPassword = document.getElementById('password') as HTMLInputElement;
-// const signInConfirmPassword = document.getElementById('confirm-password') as HTMLInputElement;
-
-// async function loadUsers() {
-//     const response = await fetch('http://localhost:3000/users');
-
-//     if (!response.ok) throw new Error('Something went wrong');
-
-//     const data = await response.json();
-//     console.log(data)
-//     return data;
-// }
-
-// signInForm.addEventListener('submit', loadUsers);
-
-// // function doLoginFlow() {
-    
-// // }
-
 
 // This is the type for every function which renders employees somehow
 type TRenderEmployeesArguments = {
@@ -225,8 +204,8 @@ function renderHeaderContent(): string {
                         </a>
                     </div>
                 </div>
-                <div id="switch-on-off-container">
-                    <img src="./images/turn-on-off.png" id="switch-on-off" alt="Turn on/off" width="20px" height="20px" />
+                <div id="turn-on-off-container">
+                    <img src="./images/turn-on-off.png" id="turn-on-off" alt="Turn on/off" width="20px" height="20px" />
                 </div>
             </div>
         </div>
@@ -238,6 +217,28 @@ pageHeader.innerHTML = renderHeaderContent();
 const searchIcon  = document.getElementById('search-icon') as HTMLImageElement;
 const searchInput = document.getElementById('search-input') as HTMLInputElement;
 const basicSearchForm = document.querySelector('.employee-search-container-form') as HTMLFormElement;
+const signOutText = document.getElementById('sign-out') as HTMLAnchorElement;
+const sigOutPopUpContainer = document.getElementById('sign-out-pop-up-container') as HTMLDivElement | null;
+const cancelSignOut = document.getElementById('cancel-sign-out') as HTMLButtonElement;
+const confirmSignOut = document.getElementById('confirm-sign-out') as HTMLButtonElement;
+const turnOnOffImg = document.getElementById('turn-on-off') as HTMLImageElement;
+
+signOutText?.addEventListener('click', () => {
+    sigOutPopUpContainer ? sigOutPopUpContainer.style.display = "block" : "";
+});
+
+cancelSignOut.addEventListener('click', () => {
+    sigOutPopUpContainer ? sigOutPopUpContainer.style.display = "none" : "";
+});
+
+confirmSignOut.addEventListener('click', () => {
+    window.location.href = './authenticate/sign-in.html';
+});
+
+turnOnOffImg.addEventListener('click', () => {
+    sigOutPopUpContainer ? sigOutPopUpContainer.style.display = "block" : "";
+});
+
 
 function reusableStylesForEmptyPage(): void { 
     pageHeader.style.display = 'none';

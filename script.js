@@ -142,8 +142,8 @@ function renderHeaderContent() {
                         </a>
                     </div>
                 </div>
-                <div id="switch-on-off-container">
-                    <img src="./images/turn-on-off.png" id="switch-on-off" alt="Turn on/off" width="20px" height="20px" />
+                <div id="turn-on-off-container">
+                    <img src="./images/turn-on-off.png" id="turn-on-off" alt="Turn on/off" width="20px" height="20px" />
                 </div>
             </div>
         </div>
@@ -153,6 +153,23 @@ pageHeader.innerHTML = renderHeaderContent();
 const searchIcon = document.getElementById('search-icon');
 const searchInput = document.getElementById('search-input');
 const basicSearchForm = document.querySelector('.employee-search-container-form');
+const signOutText = document.getElementById('sign-out');
+const sigOutPopUpContainer = document.getElementById('sign-out-pop-up-container');
+const cancelSignOut = document.getElementById('cancel-sign-out');
+const confirmSignOut = document.getElementById('confirm-sign-out');
+const turnOnOffImg = document.getElementById('turn-on-off');
+signOutText === null || signOutText === void 0 ? void 0 : signOutText.addEventListener('click', () => {
+    sigOutPopUpContainer ? sigOutPopUpContainer.style.display = "block" : "";
+});
+cancelSignOut.addEventListener('click', () => {
+    sigOutPopUpContainer ? sigOutPopUpContainer.style.display = "none" : "";
+});
+confirmSignOut.addEventListener('click', () => {
+    window.location.href = './authenticate/sign-in.html';
+});
+turnOnOffImg.addEventListener('click', () => {
+    sigOutPopUpContainer ? sigOutPopUpContainer.style.display = "block" : "";
+});
 function reusableStylesForEmptyPage() {
     pageHeader.style.display = 'none';
     pageMainContent.style.display = 'none';
