@@ -314,7 +314,7 @@ li::after {
     background-color: var(--background-and-text-white);
 }
 
-#home-page-button {
+.home-page-button {
     display: flex;
     justify-content: center;
     align-items: center;
