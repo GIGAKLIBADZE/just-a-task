@@ -11,7 +11,7 @@ app.use(express.json());
 
 const users = JSON.parse(fs.readFileSync("./src/data/users.json", "utf-8"));
 
-app.get("/users", (req: Request, res: Response) => {
+app.get("/users", ( res: Response) => {
     res.json(users);
 });
 

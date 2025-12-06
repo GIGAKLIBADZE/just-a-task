@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+// Protect the sign-in page from the unauthenticated user
 const user = localStorage.getItem("user");
 if (!user)
     window.location.href = "/authenticate/sign-in.html";

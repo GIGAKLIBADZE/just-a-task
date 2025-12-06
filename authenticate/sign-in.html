@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="./authenticate.css" />
     <link rel="stylesheet" href="../main.css" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:100,300,400" />
-    <script src="/authenticate.js" defer></script>
+    <script src="./authenticate.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
         <h1 id="title">LEVERX</h1>
     </header>
     <main>
-        <form>
+        <form id="sign-in-form">
             <div class="label-and-input">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email"/>
@@ -25,7 +25,7 @@
             </div>
             <div class="label-and-input">
                 <label for="confirm-password">Confirm password</label>
-                <input type="confirm-password" id="confirm-password" name="confirm-password" placeholder="Confirm your password"/>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password"/>
             </div>
             <button id="sign-in" class="home-page-button">Log In</button>
         <form>

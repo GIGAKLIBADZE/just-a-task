@@ -7,5 +7,10 @@
     "outDir": "./",
     "rootDir": "./"
   },
-  "files": ["./script.ts"]
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

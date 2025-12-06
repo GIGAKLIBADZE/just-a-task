@@ -74,6 +74,28 @@ const employeesAmount = document.getElementById('employees-amount') as HTMLParag
 
 const employeesMainContent = document.getElementById('employees-main-content') as HTMLElement;
 
+// const signInForm = document.getElementById('sign-in-form') as HTMLFormElement;
+// const signInEmail = document.getElementById('email') as HTMLInputElement;
+// const signInPassword = document.getElementById('password') as HTMLInputElement;
+// const signInConfirmPassword = document.getElementById('confirm-password') as HTMLInputElement;
+
+// async function loadUsers() {
+//     const response = await fetch('http://localhost:3000/users');
+
+//     if (!response.ok) throw new Error('Something went wrong');
+
+//     const data = await response.json();
+//     console.log(data)
+//     return data;
+// }
+
+// signInForm.addEventListener('submit', loadUsers);
+
+// // function doLoginFlow() {
+    
+// // }
+
+
 // This is the type for every function which renders employees somehow
 type TRenderEmployeesArguments = {
     src: string;
