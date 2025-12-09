@@ -19,12 +19,9 @@ const employees = JSON.parse(fs.readFileSync("./src/data/employees.json", "utf-8
 app.get("/employees", (req, res) => {
     res.json(employees);
 });
-app.get("/employees", (res) => {
-    res.json(employees);
-});
 app.get("/employees/:id", (req, res) => {
     const id = Number(req.params.id);
-    const user = employees.find((u) => u.id === id);
+    const user = employees.find((u) => u._id === id);
     if (!user)
         return res.status(404).json({ message: "User not found" });
     res.json(user);
@@ -39,21 +36,16 @@ app.post("/sign-in", (req, res) => __awaiter(void 0, void 0, void 0, function* (
     if (!isPasswordValid) {
         return res.status(400).json({ message: "Invalid email or password" });
     }
-    res.json({
+    return res.json({
         message: "Success",
         user: {
             id: employee._id,
             first_name: employee.first_name,
             last_name: employee.last_name,
+            email: employee.email
         }
     });
 }));
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
-function hashPassword(password) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const salt = yield bcrypt.genSalt(10);
-        return bcrypt.hash(password, salt);
-    });
-}

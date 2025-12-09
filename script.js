@@ -9,9 +9,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 // Protect the sign-in page from the unauthenticated user
+const employee = sessionStorage.getItem('user');
 const isSignInPage = window.location.pathname.includes("sign-in.html");
-if (!isSignInPage) {
-    window.location.href = "/authenticate/sign-in.html";
+if (!employee && !isSignInPage) {
+    window.location.href = './authenticate/sign-in.html';
 }
 const employeesGridViewList = document.querySelector('.employees-list-grid-view');
 const employeesListingViewList = document.getElementById('employees-list-listing-view');
@@ -26,7 +27,7 @@ const emptyPage = document.getElementById('empty-page');
 const pageHeader = document.querySelector('.main-header');
 const pageMainContent = document.getElementById('main-content');
 const pageBody = [...document.getElementsByTagName('body')];
-const homePageBtn = document.getElementById('home-page-button');
+const homePageBtn = document.querySelector('.home-page-button');
 const employeesAmountLarge = document.querySelector('.employees-amount-large');
 const employeesAmount = document.getElementById('employees-amount');
 const employeesMainContent = document.getElementById('employees-main-content');
@@ -187,7 +188,7 @@ function reusableStylesForEmptyPage() {
 }
 let allEmployees = [];
 const loadEmployees = () => {
-    fetch('employees.json')
+    fetch('http://localhost:3000/employees')
         .then((response) => response.json())
         .then((employees) => {
         allEmployees = employees;
@@ -218,7 +219,7 @@ const employeeId = Number(urlParams.get('id'));
 function fetchEmployeeDetails() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const response = yield fetch('employees.json');
+            const response = yield fetch('http://localhost:3000/employees');
             if (!response.ok) {
                 throw new Error('Something went wrong.');
             }
@@ -235,7 +236,7 @@ function loadEmployeeDetails() {
     return __awaiter(this, void 0, void 0, function* () {
         const employees = yield fetchEmployeeDetails();
         const currentEmployee = employees === null || employees === void 0 ? void 0 : employees.find((d) => d._id === employeeId);
-        if (currentEmployee) {
+        if (currentEmployee && employeesMainContent) {
             employeesMainContent.innerHTML = renderEmployeeDetails(currentEmployee);
         }
     });
@@ -411,10 +412,10 @@ document.addEventListener('click', (event) => {
         });
     }
 });
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', (event) => __awaiter(void 0, void 0, void 0, function* () {
     loadEmployees();
-    loadEmployeeDetails();
-});
+    yield loadEmployeeDetails();
+}));
 viewSwitcher.forEach((vs) => vs.addEventListener('click', handleContentChange));
 let index = 0;
 function handleContentChange(event) {
@@ -479,7 +480,7 @@ searchIcon.addEventListener('click', (e) => {
     doSearch(inputValue);
     syncInputs(inputValue);
 });
-homePageBtn.addEventListener('click', () => {
+homePageBtn === null || homePageBtn === void 0 ? void 0 : homePageBtn.addEventListener('click', () => {
     pageBody.map((i) => {
         i.style.display = 'block';
     });

@@ -1,8 +1,9 @@
 // Protect the sign-in page from the unauthenticated user
+const employee = sessionStorage.getItem('user');
 const isSignInPage = window.location.pathname.includes("sign-in.html");
 
-if (!isSignInPage) {
-  window.location.href = "/authenticate/sign-in.html";
+if (!employee && !isSignInPage) {
+    window.location.href = './authenticate/sign-in.html';
 }
 
 // All of the types below declared with 'type' for for employees
@@ -31,23 +32,23 @@ type TVisas = TVisa[];
 type TEmployee = {
     _id: 0,
     isRemoteWork: true,
-    user_avatar: "./images/user.png",
-    first_name: "Brendar",
-    last_name: "Krueger",
-    first_native_name: "Brendar",
-    last_native_name: "Krueger",
-    middle_native_name: "D.",
-    department: "Web & Mobile",
-    building: "Pilsudskiego 69 (Poland)",
-    room: "1404",
+    user_avatar: string,
+    first_name: string,
+    last_name: string,
+    first_native_name: string,
+    last_native_name: string,
+    middle_native_name: string
+    department: string,
+    building: string,
+    room: string,
     date_birth: TBirthDate,
-    desk_number: 20,
+    desk_number: number,
     manager: TManager,
-    phone: "+12931293129",
-    email: "brendar.krueger@leverx.com",
-    telegram: "gigaklibadze",
-    cnumber: "C5336116",
-    citizenship: "Georgia",
+    phone: string,
+    email: string,
+    telegram: string,
+    cnumber: string,
+    citizenship: string,
     visa: TVisas
 }
 
@@ -69,12 +70,12 @@ const emptyPage = document.getElementById('empty-page') as HTMLDivElement;
 const pageHeader = document.querySelector('.main-header') as HTMLElement;
 const pageMainContent = document.getElementById('main-content') as HTMLElement;
 const pageBody = [...document.getElementsByTagName('body')] as HTMLBodyElement[];
-const homePageBtn = document.getElementById('home-page-button') as HTMLButtonElement;
+const homePageBtn = document.querySelector('.home-page-button') as HTMLButtonElement | undefined;
 
 const employeesAmountLarge = document.querySelector('.employees-amount-large') as HTMLParagraphElement;
 const employeesAmount = document.getElementById('employees-amount') as HTMLParagraphElement;
 
-const employeesMainContent = document.getElementById('employees-main-content') as HTMLElement;
+const employeesMainContent = document.getElementById('employees-main-content') as HTMLElement | null;
 
 
 // This is the type for every function which renders employees somehow
@@ -264,7 +265,7 @@ function reusableStylesForEmptyPage(): void {
 let allEmployees: TEmployees = [];
 
 const loadEmployees = (): void => {
-    fetch('employees.json')
+    fetch('http://localhost:3000/employees')
     .then((response) => response.json())
     .then((employees: TEmployees) => {
         allEmployees = employees;
@@ -302,7 +303,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const employeeId = Number(urlParams.get('id'));
 async function fetchEmployeeDetails(): Promise<TEmployees | undefined> {
     try {   
-        const response = await fetch('employees.json');
+        const response = await fetch('http://localhost:3000/employees');
 
         if (!response.ok) {
             throw new Error('Something went wrong.')
@@ -321,7 +322,7 @@ async function loadEmployeeDetails(): Promise<void>{
 
     const currentEmployee = employees?.find((d: TEmployee) => d._id === employeeId);
 
-    if (currentEmployee) {
+    if (currentEmployee && employeesMainContent) {
         employeesMainContent.innerHTML = renderEmployeeDetails(currentEmployee);
     }
 }
@@ -508,9 +509,9 @@ document.addEventListener('click', (event) => {
     }
 });
 
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', async (event) => {
     loadEmployees();
-    loadEmployeeDetails();
+    await loadEmployeeDetails();
 });
 
 viewSwitcher.forEach((vs: HTMLDivElement) => vs.addEventListener('click', handleContentChange));
@@ -599,7 +600,7 @@ searchIcon.addEventListener('click', (e) => {
     syncInputs(inputValue);
 });
 
-homePageBtn.addEventListener('click', () => {
+homePageBtn?.addEventListener('click', () => {
     pageBody.map((i) => {
         i.style.display = 'block';
     });
