@@ -1,0 +1,801 @@
+/* Basic reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/* For rem using */
+html {
+    font-size: 62.5%;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+$primaryBlue: #1450af;
+$backgroundAndTextWhite: #fafafa;
+$primaryGrey: #6f7780;
+$lightGrey: #87a4d3;
+$lightRed: #ff8787;
+$lightBlue: #4a84b8;
+$darkText: #2d2f32;
+$borderColor: #d9dce1;
+
+@mixin flex-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primaryBlue;
+    color: $backgroundAndTextWhite;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+    font-family: 'Lato', sans-serif;
+    position: relative;
+}
+
+#header-information {
+    background-color: $primaryBlue;
+}
+
+#inner-header-container {
+    position: relative;
+    padding: 1rem 2rem;
+    z-index: 99; 
+    background-color: $primaryBlue; 
+    color: $backgroundAndTextWhite;
+    width: 100%;
+}
+
+#ad {
+    position: absolute;
+    top: 2rem;
+    z-index: 99;
+    transform: translateX(50%);
+    text-align: center;
+}
+
+#ad-title {
+    font-size: 3rem;
+    font-weight: 900;
+    color: $primaryBlue;
+}
+
+
+#ad-desc {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    color: $primaryGrey;
+}
+
+
+#profile-container {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+    z-index: 10;
+    overflow-y: auto;
+}
+
+#profile {
+    width: 75%;
+    height: 100%;
+    position: relative;
+    background-color: $backgroundAndTextWhite;
+    overflow-y: auto;
+}
+
+#profile-header {   
+    position: static;
+    display: flex;
+    align-items: end;
+    gap: 2rem;
+    padding: 10rem 1rem 3rem 1rem;
+}
+
+#name-and-sign-out {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#address-book {
+    font-size: 1.4rem;
+    position: relative;
+    margin-top: 3rem;
+    padding-left: 1rem;
+}
+
+#address-book::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: -2rem;
+    width: 100%;
+    height: 0.1rem;
+    background-color: rgb(102, 101, 100, 0.5);
+}
+
+#address-book::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: -2rem;
+    width: 100%;
+    height: 0.1rem;
+    background-color: rgb(102, 101, 100, 0.5);
+}
+
+#support-button {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    border-radius: 20px;
+    background-color: $primaryBlue;
+    color: $backgroundAndTextWhite;
+    padding: 1rem;
+    border: none;
+    gap: 0.4rem;
+    cursor: pointer;
+}
+
+#support-icon {
+    filter: invert(1);
+}
+
+#sign-out {
+    font-size: 1.2rem;
+    text-decoration: underline;
+    color: $lightRed;
+}
+
+#menu {
+    display: none;
+}
+
+#menu:checked + label + div {
+    display: block;
+}
+
+#menu:checked ~ label::after {
+    content: "cancel"; 
+}
+
+#address-book-large, #support-profile-turn-on-off-container{
+    display: none;
+}
+
+#hamburger {
+    display: block;
+    position: relative;
+}
+
+#hamburger::after {
+    position: absolute;
+    display: block;
+    content: "menu";
+    font-family: "Material Icons";
+    font-size: 3rem;
+    top: 1.2rem;
+    right: 2rem;
+    color: $lightGrey;
+    display: block;
+    top: -8rem;
+    z-index: 99;
+}
+
+#address-book-container {
+    border-top: 0.1rem solid rgb(102, 101, 100, 0.5);
+    border-bottom: 0.1rem solid rgb(102, 101, 100, 0.5);;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+#company {
+    opacity: 0.5;
+}
+
+#header-search {
+    padding: 1rem 0;
+    background-color: $primaryBlue;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 99;
+}
+
+#input-container {
+    position: relative;
+}
+
+#search-icon {
+    position: absolute;
+    left: 1.4rem;
+}
+
+#search-input {
+    text-indent: 4rem;
+    background: transparent;
+    border: none;
+}
+
+#main-content {
+    height: 100vh;
+    padding-top: 3rem;
+    padding-inline: 1rem;
+    background-color: $backgroundAndTextWhite;
+    margin: auto;
+    position: relative;
+}
+
+#employees-amount {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $primaryGrey;
+    position: absolute;
+    left: 2rem;
+}
+
+#employees-list-container {
+    display: none;
+}
+
+#employees-list {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 3rem;
+}
+
+li {
+    border-radius: 5px;
+    padding: 2rem 1rem 1.5rem 1rem;
+    background-color: $backgroundAndTextWhite;
+    position: relative;
+    border: 0.1rem solid rgb(102, 101, 100, 0.5);
+}
+
+li::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0.1rem;
+    background-color: rgb(102, 101, 100);
+    left: 0;
+    top: 8rem;
+    opacity: 0.5;
+}
+
+.employee-picture-and-name {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.name, #profile-owner-name, #address-book {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: $darkText;
+}
+
+.job {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    font-size: 1.3rem;
+    color: $lightBlue;
+    margin-left: 7rem;
+    margin-top: 2rem;
+}
+
+#search-and-filter {
+    display: none;
+    gap: 4rem;
+}
+
+.employee-picture {
+    width: 5rem;
+    height: 5rem;
+}
+
+#empty-page {
+    display: none;
+    padding: 4rem 10rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    color: rgb(39, 37, 37);
+    background-color: $backgroundAndTextWhite;
+}
+
+.home-page-button {
+    @include flex-button;
+    padding: 2rem;
+    border: none;
+    border-radius: 6px;
+}
+
+ul {
+    list-style: none;
+}
+
+#employees-main-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#employee-detailed-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    font-size: 2rem;
+}
+
+/* Styles for the sign-up pop-up modal */
+#sign-out-pop-up-container {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+    z-index: 99;
+}
+
+#sign-out-pop-up-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    background-color: $backgroundAndTextWhite;
+    padding: 4rem 2rem;
+    width: 50%;
+    border-radius: 2rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#cancel-sign-out {
+    color: $darkText;
+    background: transparent;
+    border: solid 0.1rem $borderColor;
+}
+
+.sign-out-modal-btn {
+    display: flex;
+    border-radius: 14px;
+    background-color: $primaryBlue;
+    color: $backgroundAndTextWhite;
+    padding: 2rem 6rem;
+    border: none;
+    cursor: pointer;
+}
+
+#sign-out-question {
+    font-size: 1.4rem;
+    color: $darkText;
+}
+
+#sign-out-btns-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Desktop views */
+@media (min-width: 1440px) {
+    #employees-main-content {
+        flex-direction: row;
+    }   
+
+    #employee-detailed-overview section {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    #employee-detailed-overview section div {
+        display: flex;
+        justify-content: space-between; 
+    }
+
+    #employee-detailed-overview section div input{
+        border: none;
+    }
+
+    .employee-general-overview-picture {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    #employee-general-overview {
+        p {
+            font-size: 2rem;
+            color: $darkText;
+        }
+
+        button {
+            font-size: 2rem;
+            color: $backgroundAndTextWhite;
+            background-color: $primaryBlue;
+            padding: 2rem;
+            border: none;
+        }
+    }
+
+    #hamburger, #menu, #profile-container, #header-search, #employees-amount, #employees-list-container, #employees-list {
+        display: none;
+    }
+
+    #address-book-large {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: $backgroundAndTextWhite;
+        position: relative;
+        display: block;
+    }
+
+    #address-book-large::after {
+        position: absolute;
+        content: "";
+        top: 5.2rem;
+        left: 0;
+        width: 100%;
+        height: 0.6rem;
+        background-color: $lightBlue;
+    }
+    
+    #support-button-large {
+        display: flex;
+        border-radius: 20px;
+        background-color: $primaryBlue;
+        color: $backgroundAndTextWhite;
+        padding: 1rem;
+        border: none;
+        gap: 0.4rem;
+        cursor: pointer;
+    }
+
+    #profile-large {
+        display: flex;
+        align-items: center;
+        border-radius: 20px;
+        background-color: $primaryBlue;
+        color: $backgroundAndTextWhite;
+        padding: 1rem;
+        border: none;
+        gap: 0.4rem;
+    }
+
+    #turn-on-off-container {
+        border-radius: 50%;
+        background-color: $primaryBlue;
+        padding: 1rem;
+        border: none;
+        cursor: pointer;
+    }
+
+    #turn-on-off {
+        filter: invert(1);
+    }
+
+    #inner-header-container {
+        width: fit-content;
+    }
+
+    #header-information {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 5rem;
+    }
+
+    #support-and-profile-container {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    #support-profile-turn-on-off-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4rem;
+    }
+
+    #search-and-filter {
+        display: flex;
+        justify-content: space-between;
+        padding-inline: 5rem;
+    }
+
+    .employees-amount-large {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: $primaryGrey;
+        position: absolute;
+        left: 0;
+    }
+
+    #filter-ways {
+        display: flex;
+        gap: 1rem;
+    }
+
+    #grid-view, #list-view {
+        filter: invert(1)
+    }
+
+    .employees-list-grid-view {
+        display: none;
+        grid-template-columns: repeat(3, 30rem);
+        gap: 2rem;
+        position: relative;
+        margin-top: 4rem;
+        padding-top: 4rem;
+    }
+
+    .employee-picture-and-name {
+        flex-direction: column;
+    }
+
+    .employee-picture {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    li::after {
+        height: 0.2rem;
+        width: 75%;
+        top: 18rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .large-emp {
+        padding: 2rem 2rem;
+    }
+
+    .job {
+        margin-top: 6rem;
+        margin-left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+    }
+
+    #filter-part {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    #amount-and-filter  {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #employee-search-container {
+        background-color: $backgroundAndTextWhite;
+        padding: 2rem;
+        border-radius: 8px;
+        width: 28rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    .employee-search-container-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    #employee-search-input-container {
+        position: relative;
+    }
+
+    #employee-search-input, .search-field {
+        width: 100%;
+        height: 4rem;
+        padding-left: 3.5rem;
+        border: 1px solid $borderColor;
+        border-radius: 4px;
+        font-size: 1.4rem;
+        background-color: $backgroundAndTextWhite;
+    }
+
+    .search-button {
+        width: 100%;
+        padding: 1rem;
+        background-color: $primaryBlue;
+        border: none;
+        color: $backgroundAndTextWhite;
+        border-radius: 5px;
+        font-size: 1.4rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 2rem;
+    }
+
+    #search-part {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        position: relative;
+        width: 33.3%;
+    }
+
+    .field-label {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .search-label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: $darkText;
+    }
+    
+    #search-form {
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+        padding: 2rem;
+        display: none;
+        margin-top: 4rem;
+        background-color: $backgroundAndTextWhite;
+    }
+
+    .phone-skype {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+    }
+
+    .building-room {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+    }
+
+     #employee-search-container {
+        display: none;
+        margin-top: 4rem;
+     }
+
+    #search-form-container {
+        display: none;
+    }
+
+    #search-part input[type="radio"] {
+        display: none;
+        position: relative;
+    }
+
+    #search-part input[type="radio"]:checked + label + div {
+        display: block;
+    }
+
+    #search-part input[type="radio"]:checked + label + form {
+        display: block;
+    }
+
+    .basic, .advanced {
+        position: absolute;
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: $borderColor;
+        top: 0;
+    }
+
+    .basic {
+        left: 0;
+    }
+
+    .advanced {
+        right: 3rem;
+    }
+
+    #search-part input[type="radio"]:checked + label::after {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 4rem;
+        width: 100%;
+        height: 0.2rem;
+        background-color: $primaryBlue;
+    }
+
+    #listing-view-banner {
+        width: 100%;
+        background-color: $backgroundAndTextWhite;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 4rem 2rem 2rem;
+    }
+
+    .banner-part {
+        display: flex;
+        align-items: center
+    }
+
+    .first-part {
+        gap: 3rem;
+    }
+
+    .second-part {
+        gap: 5rem;
+        margin-top: 0;
+        color: rgb(60, 58, 58);
+    }
+
+    .large-emp-listing {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 4rem 2rem 2rem;
+    }
+
+    .employee-picture-and-name-listing {
+        display: flex;
+        align-items: center;
+    }
+
+    #filter-part-and-llisting-container {
+        width: 125%;
+    }
+
+    .listing-view-container {
+        display: none;
+        width: 100%;
+        position: relative;
+        margin-top: 4rem;
+    }
+
+    .icon-switcher-container {
+        position: absolute;
+        right: 0;
+    }
+
+    .icon-grid {
+        right: 3rem;
+    }
+
+    #empty-result-title {
+        font-size: 4rem;
+        opacity: 0.5;
+    }
+
+    #empty-result-desc {
+        opacity: 0.5;
+        font-size: 2rem;
+    }
+
+    .active-content {
+        display: grid;
+    }
+
+    .content-container {
+        width: 66.6%;
+        position: relative;
+    }
+}

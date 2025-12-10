@@ -1,0 +1,69 @@
+header {
+    display: flex;
+    justify-content: center;
+    background-color: $primaryBlue;
+    padding: 2rem 5rem;
+    color: $backgroundAndTextWhite;
+}
+
+main {
+    padding: 6rem 2rem 4rem 2rem;
+    max-width: 520px;
+    margin: auto;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2.6rem;
+}
+
+.label-and-input {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+}
+
+label {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $darkText;
+}
+
+input {
+    height: 5rem;
+    border: 1px solid $borderColor;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    background-color: $backgroundAndTextWhite;
+    text-indent: 1rem;
+}
+
+
+@media (min-width: 1440px) {
+    main {
+        padding-top: 10rem;
+        max-width: 680px; 
+    }
+    
+    form {
+        row-gap: 4.4rem;
+    }
+
+    .label-and-input {
+        gap: 1.8rem;
+    }
+
+    .label {
+        font-size: 2.2rem;
+    }
+
+    input {
+        font-size: 1.8rem;
+        border-radius: 6px;
+    }
+
+    #sign-in {
+        font-size: 2rem;
+    }
+}
