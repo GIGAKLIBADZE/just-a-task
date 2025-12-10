@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "es6",
+    "target": "es6",
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "./",
+    "rootDir": "./"
+  },
+  "include": [
+    "**/*.ts"
+, "vite.config.js"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
